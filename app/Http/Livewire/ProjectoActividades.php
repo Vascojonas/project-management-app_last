@@ -106,6 +106,11 @@ class ProjectoActividades extends Component
 
     }
 
+    public function actividadeDelete($id){
+        Actividade::find($id)->delete();
+        $this->projectoInfo();
+    }
+
     
     public function convertCostumerDataToHtml()
     {

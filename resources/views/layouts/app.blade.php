@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <title>Projecto de sistemas de preço de construção</title>
+    <title class="text-captalize">Projecto de sistemas de preço de construção</title>
 
     @livewireStyles
 </head>
@@ -23,15 +23,15 @@
             <header class="bg-white w-100">
                <div class="flex">
                    <img  src="{{ asset('imagens/logo.jpg') }}" class="logo float-left" style="width: 80px; ">
-                   <h4 class="float-left mt-3">Projecto de sistemas de preço de construção cívil</h4>
+                   <h4 class="text-uppercase float-left mt-3">Projecto de sistemas de preço de construção cívil</h4>
                </div>
                 <nav class="navbar navbar-expand-sm container p-0 bg-warning radius clear">
                     <ul class="navbar-nav  radius w-100  m-0 ">
                         <li class="nav-item w-50 text-center  radius direita">
-                            <a class="nav-link  text-white " href="/">Cadastrar projecto</a>
+                            <a class="text-uppercase nav-link  text-white " href="/">Cadastrar projecto</a>
                         </li>
                         <li class="nav-item w-50   radius text-center direita"> 
-                            <a class="nav-link text-white" href="/projectos/capitulos">Projectos-capitulos</a>
+                            <a class="text-uppercase nav-link text-white" href="/projectos/capitulos">Projectos-capitulos</a>
                         </li>
                         
                     </ul>

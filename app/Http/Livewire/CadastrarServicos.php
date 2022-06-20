@@ -53,6 +53,9 @@ class CadastrarServicos extends Component
             $this->preco_final =$actividade['preco_final'];
             $this->capitulo_id = $actividade['capitulo_id'];
             
+        }else if(count($arry)==3){
+            $this->nrProjecto=$arry[1];
+            $this->projecto_principal =$arry[2];
         }
 
        
@@ -83,8 +86,8 @@ class CadastrarServicos extends Component
             
         ]);
 
-        $actividade=Actividade::find($this->actividadeId)->update($data);
         
+        $actividade=Actividade::find($this->actividadeId)->update($data);
         
        /* $actividade->preco_unitario= $data['preco_unitario'];
         $actividade->quantidade=$data['quantidade'];
@@ -122,20 +125,31 @@ class CadastrarServicos extends Component
 
         
         $data= $this->validate([
-            'codigo'=> 'required',
-            'designacao'=> 'required',
+            'codigo'  => 'required',
+            'designacao' => 'required',
+            'coeficiente' => 'required',
             'quantidade'=> 'required',
             'unidade'=> 'required',
             'preco_unitario'=> 'required',
-            'capitulo_id'=> 'required',
+            'preco_final'=> 'required',
+        
         ]);
+        
+            $actividade=Actividade::where('codigo', $data['codigo'])->first();
+            
+            if($actividade){
+                session()->flash('codigoErro', 'Este código já existe');
+                return;
+            }else{
+                $actividade = new Actividade($data);
+                 $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
 
+                 $projecto->actividades()->save($actividade);
+                 session()->flash('success', 'Actividade registrada com sucesso');
+                 return redirect('/projectos/actividades/-'.$this->nrProjecto.'-'.$this->projecto_principal);
+            }
 
-        $actividade = new Actividade($data);
-        $capitulo= Capitulo::whereId($this->capitulo_id)->first();
-
-        $capitulo->actividades()->save($actividade);
-        session()->flash('success', 'Actividade registrada com sucesso');
+       
     }
 
     public function render()

@@ -26,12 +26,12 @@
                 <div class="col-md-8">
                 <input class="form-control " type="number" id="nrProjecto" name="nrProjecto" wire:model="nrProjecto"
                  placeholder="Digite o número do projecto" />
-                 @error('nrProjecto') <span class="text-danger">{{ $message }}</span> @enderror
-                 
-                 @if (session()->has('codigoErro'))
-                     <span class="text-danger"> {{ session('codigoErro') }}</span>
-                @endif               
-             </div>
+                </div>
+                @error('nrProjecto') <span class="text-danger">{{ $message }}</span> @enderror
+                
+                @if (session()->has('codigoErro'))
+                    <span class="text-danger"> {{ session('codigoErro') }}</span>
+               @endif               
             </div>
 
             <div class="form-group row mt-3">

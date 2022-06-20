@@ -21,7 +21,7 @@ use App\Models\Actividade;
 
 Route::get('/' , App\Http\Livewire\CadastrarProjecto::class);
 Route::get('/{code}' , App\Http\Livewire\CadastrarProjecto::class);
-Route::get('/servicos/cadastrar' , App\Http\Livewire\CadastrarServicos::class);
+Route::get('/servicos/cadastrar/{code}' , App\Http\Livewire\CadastrarServicos::class);
 Route::get('/servico/update/{code}' , App\Http\Livewire\CadastrarServicos::class);
 Route::get('/projectos' , App\Http\Livewire\TodosProjectos::class);
 Route::get('/projectos/capitulos/-{code}' , App\Http\Livewire\ProjectoCapitulo::class);

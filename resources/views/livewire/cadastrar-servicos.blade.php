@@ -16,11 +16,15 @@
             @endif 
         > -->
        <div class="form-group row ">
-               <label for="codigo" class="col-md-3 col-form-label bg-secondary style="height:36px;">CODIGO:</label>
+               <label for="codigo" class="col-md-3 col-form-label bg-secondary" style="height:36px;">CODIGO:</label>
                 <div class="col-md-8">
                 <input class="form-control "  type="text" id="codigo" name="codigo"
                  placeholder="Digite o código da actividade" wire:model="codigo" />
                  @error('codigo') <span class="text-danger">{{ $message }}</span> @enderror
+
+                 @if (session()->has('codigoErro'))
+                   <span class="text-danger"> {{ session('codigoErro') }}</span>
+                 @endif
                 </div>
             </div>
 

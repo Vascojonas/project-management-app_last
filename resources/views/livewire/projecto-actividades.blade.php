@@ -1,32 +1,39 @@
-<div class=" ">
+<div class="text-uppercase  ">
     
     <div >
         @if (session()->has('codigoErro'))
-         <span class="text-danger"> {{ session('codigoErro') }}</span>
+         <span class="text-uppercase text-danger"> {{ session('codigoErro') }}</span>
          @endif
-         @error('nrProjecto') <span class="text-danger">{{ $message }}</span> @enderror
-        <div class="d-flex mt-2 mb-0 ">
-            <div class="form-group row col-4  p-0">
+         @error('nrProjecto') <span class="text-uppercase text-danger">{{ $message }}</span> @enderror
+        <div class="text-uppercase d-flex mt-2 mb-0 p-0">
+            <div class="text-uppercase form-group d-flex col-4  p-0">
 
-                    <div class="col-md-8 p-0">
+                    <div class="text-uppercase col-md-8 p-0">
                     
-                    <input class="form-control " type="number" id="nrProjecto" name="nrProjecto"  wire:model="nrProjecto" 
+                    <input class="text-uppercase form-control " type="number" id="nrProjecto" name="nrProjecto"  wire:model="nrProjecto" 
                     placeholder="Digite o numero do projecto" wire:keydown.Enter="projectoInfo()"/>
                     </div>
-                    <button class="btn btn-warning col-4" wire:click="projectoInfo()">Visualizar</button>
+                    <button class="text-uppercase btn btn-warning col-4" wire:click="projectoInfo()">Visualizar</button>
             </div>
+
+            <div class="text-uppercase form-group d-flex justify-content-end col-4  p-0  ml-auto">
+
+              <a href="/servicos/cadastrar/-{{$nrProjecto}}-{{$projecto_principal}}" class="text-uppercase btn btn-warning ">Nova actividade</a>
+              
+            </div>
+
 
          
         </div>
 
       
     </div>
-    <div class="row">
-    <table class="table table-secondary table-striped table-hover"> 
-      <thead class="thead-dark">
+    <div class="text-uppercase row">
+    <table class="text-uppercase table table-secondary table-striped table-hover"> 
+      <thead class="text-uppercase thead-dark">
         <tr>
           <th scope="col">CÓDIGO</th>
-          <th scope="col" class="text-center ">DESIGNAÇÃO</th>
+          <th scope="col" class="text-uppercase text-center ">DESIGNAÇÃO</th>
           <th scope="col">UN</th>
           <th scope="col">QUANTIDADE</th>
           <th scope="col">PREÇO_UNITÁRIO</th>
@@ -46,11 +53,13 @@
               <td>{{$actividade['quantidade']}}</td>
               <td>{{$actividade['preco_final']}},00 MT</td>
               <td>{{$actividade['preco_final']*$actividade['quantidade']}},00 MT</td>
-              <td width="150">
-                <a href="/servico/update/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+              <td width="150" class="text-uppercase text-right">
+                <a href="/servico/update/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="text-uppercase fa fa-edit"></i></a>
                 @if ($actividade['unidade']=='H'||$actividade['unidade']=='h')
-                  <a href="/processar/pagamentos/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="btn btn-sm btn-outline-dark ">MO</a>         
+                  <a href="/processar/pagamentos/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-outline-dark ">MO</a>         
                 @endif
+                <button wire:click="actividadeDelete({{$actividade['id']}})" class="text-uppercase btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="text-uppercase fa fa-times"></i></button>
+
               </td>
             </tr>
 
@@ -70,16 +79,16 @@
             ?>
             <tr>
               <th colspan="4"></th>
-              <th class="text-right">Total</th>
-              <td colspan="2" class=""> {{$total}},00 MT</td>
+              <th class="text-uppercase text-right">Total</th>
+              <td colspan="2" class="text-uppercase "> {{$total}},00 MT</td>
             </tr>
        </tbody>
     </table> 
-    <div class="col-12">
-      <div class="form-group row col-12 p-0">
-        <button class="btn btn-warning col-4 " wire:click="voltar({{$total}})">Voltar</button>
+    <div class="text-uppercase col-12">
+      <div class="text-uppercase form-group row col-12 p-0">
+        <button class="text-uppercase btn btn-warning col-4 " wire:click="voltar({{$total}})">Voltar</button>
         
-        <button class="btn btn-warning col-4 ml-auto" wire:click="custos({{$total}},{{$totalReal}})">K</button>
+        <button class="text-uppercase btn btn-warning col-4 ml-auto" wire:click="custos({{$total}},{{$totalReal}})">K</button>
         
        </div>
     </div>
