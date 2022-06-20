@@ -18,7 +18,7 @@
     @livewireStyles
 </head>
 <body>
-    <div class=" container-fluid h-100"> <!--Inicio Conteiner-->
+    <div class="h-100"> <!--Inicio Conteiner-->
        <div class="row">
             <header class="bg-white w-100">
                <div class="flex">

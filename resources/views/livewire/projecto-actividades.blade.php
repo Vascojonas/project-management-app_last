@@ -49,7 +49,7 @@
               <td width="150">
                 <a href="/servico/update/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
                 @if ($actividade['unidade']=='H'||$actividade['unidade']=='h')
-                  <a class="btn btn-sm btn-outline-dark ">MO</a>         
+                  <a href="/processar/pagamentos/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="btn btn-sm btn-outline-dark ">MO</a>         
                 @endif
               </td>
             </tr>

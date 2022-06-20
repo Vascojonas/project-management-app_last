@@ -29,6 +29,7 @@ Route::get('/projectos/capitulos/' , App\Http\Livewire\ProjectoCapitulo::class);
 Route::get('/projectos/actividades/{code}' , App\Http\Livewire\ProjectoActividades::class);
 Route::get('/projectos/actividades/{code}' , App\Http\Livewire\ProjectoActividades::class);
 Route::get('/capitulos' , App\Http\Livewire\CadastrarCapitulos::class);
+Route::get('/processar/pagamentos/-{code}' , App\Http\Livewire\MaoObra::class);
 Route::get('/custos/{code}' , App\Http\Livewire\CustosIndirectos::class);
 Route::get('/projectos/relatorio/pdf/{code}' , [App\Http\Controllers\AppController::class,'activdadesRelatorio']);
 Route::get('/xls', [App\Http\Controllers\AppController::class,'carregarDados']);
@@ -42,7 +43,7 @@ Route::get('/xls' , function(){
     $datas = $spreadsheet->getActiveSheet()->toArray();
     $controleActividade=0;
 
-    $total=0;
+    $projecto= new Projecto;
 
     $codigos =[];
 

@@ -1,10 +1,10 @@
 <div class=" ">
-    <div class="text-right col-6 offset-4">
+    <div class="text-right col-6 offset-4 p-0">
         @error('capitulo') <span class="text-danger ml-auto">{{ $message }}</span> @enderror
         @error('codigo') <span class="text-danger ml-auto">{{ $message }}</span> @enderror
     
     </div>
-    <div class="d-flex">
+    <div class="d-flex p-0">
       <div class="form-group row col-6 mt-3">
           @if (session()->has('codigoErro'))
           <span class="text-danger"> {{ session('codigoErro') }}</span>
