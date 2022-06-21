@@ -9,7 +9,7 @@
         <table class="table table-striped table-bordered table-secondary ">
             <thead>
               <tr>
-                <th rowspan="2" scope="col" class="text-center pb-1 pt-1 mb-1 mt-1 w-50">DESEGNAÇÃO</th>
+                <th rowspan="2" scope="col" class="text-center pb-1 pt-1 mb-1 mt-1 w-50">DESCRIMINAÇÃO</th>
                 <th colspan="3" scope="col" class="text-center pb-1 pt-1 mb-1 mt-1">GRUPOS</th>
               </tr>
                 <th class="pb-1 pt-1 mb-1 mt-1 text-center" scope="col"  >A</th>
@@ -22,85 +22,85 @@
             <tbody>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">INSS</th>
-                <td class="p-0" ><input wire:click="habilitar(1)" wire:model="inss" readonly class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(1)" wire:model="inss" readonly class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(2)" class="bg-light form-control-file " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(3)" class="bg-light form-control-file" type="number" /></td>
               </tr>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">IRPS</th>
-                <td class="p-0" ><input wire:click="habilitar(4)" wire:model="irps" class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(4)" wire:model="irps" class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(5)" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(6)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Férias anuais </th>
-                <td class="p-0" ><input readonly class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(7)" class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(8)" wire:click="habilitar(8)" wire:model="feriaAnual" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(9)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
     
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Repousos semanais remunerado </th>
-                <td class="p-0" ><input readonly class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(10)" class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(11)"  wire:model="campoRepousoSemanal" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(12)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Faltas justificadas  </th>
-                <td class="p-0" ><input readonly class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(13)"  class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(14)" wire:model="campoFaltasJustificadas" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(15)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Feriados </th>
-                <td class="p-0" ><input readonly class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(16)" class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(17)" wire:model="campoFeriados" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(18)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Feriado por dia da cidade </th>
-                <td class="p-0" ><input readonly class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(19)" class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(20)" wire:model="campoFeriadosCidade" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(21)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row"> 13º salário</th>
-                <td class="p-0" ><input readonly class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(22)" class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(23)" wire:model="campo13SalarioB" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(24)" wire:model="campo13SalarioC" class="bg-light form-control-file" type="number" /></td>
               </tr>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Total Parcial</th>
-                <td class="p-0" ><input readonly class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(25)" wire:model="campoTotalParcialA"  class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(26)" wire:model="campoTotalParcialB" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(27)" wire:model="campoTotalParcialC" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Incidência Cumulativa (A sobre B)</th>
-                <td class="p-0" ><input readonly class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(28)" class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(29)" wire:model="campoIncidenciaAcumulativa" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(30)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Total dos Encargos</th>
-                <td class="p-0" ><input readonly class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(31)" class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(32)" wire:model="campoTotalEncargos" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(33)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
-                <th class="pb-1 pt-1 mb-1 mt-1" scope="row">Percentagem</th>
-                <td class="p-0" ><input readonly class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly class="bg-light form-control-file" type="number" /></td>
+                <th class="pb-1 pt-1 mb-1 mt-1" scope="row">Percentagem (%)</th>
+                <td class="p-0" ><input readonly wire:click="habilitar(34)" class="bg-light form-control-file m-0 " type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(35)" wire:model="campoPercetagem" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(36)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               
@@ -134,9 +134,168 @@
             <button wire:click="salarioLiquido" class="btn btn-secondary col-4 ml-auto">Calcular</button>
         </div>
       @else
+            @if ($campo===8)
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Ferias anuais</span>
+              </div>
+              <input type="number" class="form-control" placeholder="Dias de ferias anuais" aria-label="ferias"
+              aria-describedby="basic-addon1 " wire:model="feriaAnualDia"  wire:click="feriasAnual">
+            </div>
+  
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Dias Trabalhavés</span>
+                </div>
+                <input type="number" class="form-control" placeholder="Dias trabalhaveis" 
+                aria-label="salario" aria-describedby="basic-addon1" wire:model="trabalhoAnual"  wire:click="feriasAnual">
+          </div>    
+          <div class="text-right">
+            <button wire:click="feriasAnual" class="btn btn-secondary col-4 ml-auto">Calcular</button>
+        </div>
+            @else
+
+                @if ($campo===11)
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Repouso Semanal</span>
+                      </div>
+                      <input type="number" class="form-control" placeholder="Dias de ferias anuais" aria-label="ferias"
+                      aria-describedby="basic-addon1 " wire:model="valorRepousoSemanal"  wire:click="calcularCampo(11)">
+                    </div>
+              
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">Dias Trabalhavés</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="Dias trabalhaveis" 
+                        aria-label="salario" aria-describedby="basic-addon1" wire:model="trabalhoAnual"  wire:click="calcularCampo(11)">
+                  </div>    
+                  <div class="text-right">
+                    <button wire:click="calcularCampo(11)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
+                </div>
+                @else
+                    @if ($campo===14)
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Faltas Justificadas</span>
+                          </div>
+                          <input type="number" class="form-control" placeholder="Dias de ferias anuais" aria-label="ferias"
+                          aria-describedby="basic-addon1 " wire:model="valorFaltasJustificadas"  wire:click="calcularCampo(14)">
+                        </div>
+                  
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">Dias Trabalhavés</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="Dias trabalhaveis" 
+                            aria-label="salario" aria-describedby="basic-addon1" wire:model="trabalhoAnual"  wire:click="calcularCampo(14)">
+                      </div>    
+                      <div class="text-right">
+                        <button wire:click="calcularCampo(14)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
+                    </div>
+                    @else
+                          @if ($campo===17)
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">Feriados</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="Dias de ferias anuais" aria-label="ferias"
+                            aria-describedby="basic-addon1 " wire:model="valorFeriados"  wire:click="calcularCampo(17)">
+                          </div>
+                    
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Dias Trabalhavés</span>
+                              </div>
+                              <input type="number" class="form-control" placeholder="Dias trabalhaveis" 
+                              aria-label="salario" aria-describedby="basic-addon1" wire:model="trabalhoAnual"  wire:click="calcularCampo(17)">
+                        </div>    
+                        <div class="text-right">
+                          <button wire:click="calcularCampo(17)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
+                      </div>
+                      @else
+                              @if ($campo===20)
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1">Feriado por dia da cidade</span>
+                                </div>
+                                <input type="number" class="form-control" placeholder="Dias de ferias anuais" aria-label="ferias"
+                                aria-describedby="basic-addon1 " wire:model="valorFeriadosCidade"  wire:click="calcularCampo(20)">
+                              </div>
+                        
+                              <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Dias Trabalhavés</span>
+                                  </div>
+                                  <input type="number" class="form-control" placeholder="Dias trabalhaveis" 
+                                  aria-label="salario" aria-describedby="basic-addon1" wire:model="trabalhoAnual"  wire:click="calcularCampo(20)">
+                            </div>    
+                            <div class="text-right">
+                              <button wire:click="calcularCampo(20)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
+                          </div>
+                          @else
+                                    @if ($campo===23)
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Dias do mês</span>
+                                      </div>
+                                      <input type="number" class="form-control" placeholder="Dias de ferias anuais" aria-label="ferias"
+                                      aria-describedby="basic-addon1 " wire:model="valorDiasMes"  wire:click="calcularCampo(23)">
+                                    </div>
+                              
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1">Dias Trabalhavés</span>
+                                        </div>
+                                        <input type="number" class="form-control" placeholder="Dias trabalhaveis" 
+                                        aria-label="salario" aria-describedby="basic-addon1" wire:model="trabalhoAnual"  wire:click="calcularCampo(23)">
+                                  </div>    
+                                  <div class="text-right">
+                                    <button wire:click="calcularCampo(23)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
+                                </div>
+                                @else
+                                            @if ($campo===24)
+
+                                            <div class="input-group mb-3">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Anos de Trabalho</span>
+                                              </div>
+                                              <input type="number" class="form-control" placeholder="Digite anos de trabalhos" aria-label="ferias"
+                                              aria-describedby="basic-addon1 " wire:model="valorAnosTrabalho"  wire:click="calcularCampo(24)">
+                                            </div>
+
+                                            <div class="input-group mb-3">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Dias do mês</span>
+                                              </div>
+                                              <input type="number" class="form-control" placeholder="Dias de ferias anuais" aria-label="ferias"
+                                              aria-describedby="basic-addon1 " wire:model="valorDiasMes"  wire:click="calcularCampo(24)">
+                                            </div>
+                                      
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="basic-addon1">Dias Trabalhavés</span>
+                                                </div>
+                                                <input type="number" class="form-control" placeholder="Dias trabalhaveis" 
+                                                aria-label="salario" aria-describedby="basic-addon1" wire:model="trabalhoAnual"  wire:click="calcularCampo(24)">
+                                          </div>    
+                                          <div class="text-right">
+                                            <button wire:click="calcularCampo(24)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
+                                        </div>
+                                        @else
+                                        
+                                    @endif
+                                @endif
+                              
+                          @endif
+                      @endif
+                   @endif
+                @endif
+                
+            @endif
           
       @endif
-
 
 
       <!--  <table class="table table-striped table-bordered table-secondary mt-3">
