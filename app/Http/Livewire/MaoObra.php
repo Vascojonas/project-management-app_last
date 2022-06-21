@@ -8,6 +8,10 @@ use Livewire\Component;
 
 class MaoObra extends Component
 {
+    public $nrProjecto;
+    public $projecto_principal;
+    public $actividadeId;
+    public $codigo;
 
     public $salarioBruto;
     public $salarioLiquido;
@@ -53,13 +57,18 @@ class MaoObra extends Component
     public $campo;
 
     public function mount(){
-        $this->feriaAnual = round(26/267,5) ;
-        $this->campoRepousoSemanal=round(55/267,5) ;
-        $this->campoFaltasJustificadas=round(12/267,5) ;
-        $this->campoFeriados=round(9/267,5) ;
-        $this->campoFeriadosCidade=round(1/267,5) ;
-        $this->campo13SalarioB=round(30/267,5) ;
+        $current_url = \Request::fullUrl();
+        $arry = explode('-',$current_url );
+        
 
+        if(count($arry)==5){
+
+            $this->nrProjecto=$arry[3];
+            $this->actividadeId=$arry[1];
+            $this->codigo =$arry[2];
+            $this->projecto_principal =$arry[4];
+    
+        }
         $this->total();
     }
 
@@ -243,7 +252,7 @@ class MaoObra extends Component
           $this->campoIncidenciaAcumulativa= round($this->campoTotalParcialA *$this->campoTotalParcialB,5);
          
           $this->campoTotalEncargos=round($this->campoTotalParcialA +$this->campoTotalParcialB+ $this->campoTotalParcialC,5);
-          $this->campoPercetagem= $this->campoTotalEncargos*100;
+          $this->campoPercetagem= round($this->campoTotalEncargos*100,2);
     }
 
 

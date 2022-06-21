@@ -1,7 +1,12 @@
 <div>
-   <h4>Mão de obra</h4>
+  <div class="d-flex justify-content-between mb-2 ">
+    <h4>Mão de obra</h4>
+ 
+    <div>
+     <a href="/projectos/actividades/-{{$nrProjecto}}-{{$projecto_principal}}" class="btn btn-warning">Voltar</a>
+     </div>
 
-    
+  </div>
 
    <div class="d-flex ">
 
@@ -323,12 +328,9 @@
         </table>
 
      </div> -->
-
-   
-
-   
-
      
-
-   </div>
-</div>
+    </div>
+    
+  </div>
+  
+  
