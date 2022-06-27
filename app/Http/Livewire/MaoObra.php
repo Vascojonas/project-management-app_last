@@ -13,6 +13,7 @@ class MaoObra extends Component
     public $actividadeId;
     public $codigo;
 
+    public $salario;
     public $salarioBruto;
     public $salarioLiquido;
     public $inss=0.07;
@@ -46,7 +47,11 @@ class MaoObra extends Component
     public $campoTotalParcialB;
     public $campoTotalParcialC;
     public $campoIncidenciaAcumulativa;
-    public $campoTotalEncargos;
+    public $campoTotalEncargosA;
+    public $campoTotalEncargosB;
+    public $campoTotalEncargosC;
+
+
     public $campoPercetagem;
 
     
@@ -98,6 +103,26 @@ class MaoObra extends Component
             }else{
                 $this->campo13SalarioC=0;
             }
+        }else if($campo==33){
+            $salarioMinimo=6300;
+            $s=$this->salario/$salarioMinimo;
+            //Salarios 1-7 30 dias  end= anosDervico*30/267
+            //salario 8-10 end= anoServico*15/267
+            // 11-16   10 dias
+            //16 > 3 dias 
+            $this->valorAnosTrabalho =(int)$this->valorAnosTrabalho;
+
+            if($s <=7){
+                $this->campoTotalEncargosC= round($this->valorAnosTrabalho*30/267,5);
+            } else if ($s>7 && $s<=10){
+                $this->campoTotalEncargosC= round($this->valorAnosTrabalho*15/267,5);
+            }else if ($s>10 && $s<=16){
+                $this->campoTotalEncargosC= round($this->valorAnosTrabalho*10/267,5);
+            }else{
+                $this->campoTotalEncargosC= round($this->valorAnosTrabalho*3/267,5);
+            }
+
+            
         }
 
       

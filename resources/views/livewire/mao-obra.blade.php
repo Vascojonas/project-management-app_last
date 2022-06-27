@@ -61,14 +61,14 @@
 
               </tr>
               <tr>
-                <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Feriados </th>
+                <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Feriados Nacionais </th>
                 <td class="p-0" ><input readonly wire:click="habilitar(16)" class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(17)" wire:model="campoFeriados" class="bg-light form-control-file" type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(18)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
-                <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Feriado por dia da cidade </th>
+                <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Feriado Municipais </th>
                 <td class="p-0" ><input readonly wire:click="habilitar(19)" class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(20)" wire:model="campoFeriadosCidade" class="bg-light form-control-file" type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(21)" class="bg-light form-control-file" type="number" /></td>
@@ -97,8 +97,8 @@
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Total dos Encargos</th>
                 <td class="p-0" ><input readonly wire:click="habilitar(31)" class="bg-light form-control-file m-0 " type="number" /></td>
-                <td class="p-0" ><input readonly wire:click="habilitar(32)" wire:model="campoTotalEncargos" class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly wire:click="habilitar(33)" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(32)" wire:model="campoTotalEncargosB" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(33)" wire:model="campoTotalEncargosC" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
@@ -289,6 +289,33 @@
                                             <button wire:click="calcularCampo(24)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
                                         </div>
                                         @else
+                                        @if ($campo===33)
+
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Anos de Trabalho</span>
+                                          </div>
+                                          <input type="number" class="form-control" placeholder="Digite anos de trabalhos" aria-label="ferias"
+                                          aria-describedby="basic-addon1 " wire:model="valorAnosTrabalho"  wire:click="calcularCampo(33)">
+                                        </div>
+
+
+
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Salário</span>
+                                          </div>
+                                          <input type="number" class="form-control" placeholder="Dias de ferias anuais" aria-label="ferias"
+                                          aria-describedby="basic-addon1 " wire:model="salario"  wire:click="calcularCampo(33)">
+                                        </div>
+                                  
+                                           
+                                      <div class="text-right">
+                                        <button wire:click="calcularCampo(33)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
+                                    </div>
+                                    @else
+                                    
+                                @endif
                                         
                                     @endif
                                 @endif
