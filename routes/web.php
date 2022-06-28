@@ -19,8 +19,7 @@ use App\Models\Actividade;
 |
 */
 
-/*Route::get('/', [App\Http\Controllers\AppController::class,'carregarDados']);
-//Route::get('/' , App\Http\Livewire\CadastrarProjecto::class);
+Route::get('/' , App\Http\Livewire\CadastrarProjecto::class);
 Route::get('/{code}' , App\Http\Livewire\CadastrarProjecto::class);
 Route::get('/servicos/cadastrar/{code}' , App\Http\Livewire\CadastrarServicos::class);
 Route::get('/servico/update/{code}' , App\Http\Livewire\CadastrarServicos::class);
@@ -33,7 +32,7 @@ Route::get('/capitulos' , App\Http\Livewire\CadastrarCapitulos::class);
 Route::get('/processar/pagamentos/-{code}' , App\Http\Livewire\MaoObra::class);
 Route::get('/custos/{code}' , App\Http\Livewire\CustosIndirectos::class);
 Route::get('/projectos/relatorio/pdf/{code}' , [App\Http\Controllers\AppController::class,'activdadesRelatorio']);
-*/
+Route::get('/', [App\Http\Controllers\AppController::class,'carregarDados']);
 
 Route::get('/' , function(){
     
