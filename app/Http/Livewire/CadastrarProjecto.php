@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Livewire;
-use App\Models\Projecto;
 use Livewire\Component;
+use App\Models\Projecto;
 
 class CadastrarProjecto extends Component
 {   

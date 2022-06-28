@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Livewire::component('receive ', Receive::class);
+      //
     }
 }
