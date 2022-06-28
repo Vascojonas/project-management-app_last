@@ -146,7 +146,7 @@ class AppController extends Controller
         
         $novoServicoValido=false;
 
-        $projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+        $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
 
         if(!$projecto){
             $this->projectos=[];
