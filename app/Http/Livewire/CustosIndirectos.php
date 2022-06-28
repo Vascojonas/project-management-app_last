@@ -7,7 +7,7 @@ use App\Models\Projecto;
 
 use Livewire\Component;
 
-class custosIndirectos extends Component
+class CustosIndirectos extends Component
 {
     public $projecto_principal;
     public $projecto;
