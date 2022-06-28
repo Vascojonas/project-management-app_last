@@ -36,7 +36,7 @@ Route::get('/projectos/relatorio/pdf/{code}' , [App\Http\Controllers\AppControll
 */
 
 Route::get('/' , function(){
-    dd("estou aqui");
+    
     ini_set('max_execution_time', 300);
     $inputFileName = 'db.xls';
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
