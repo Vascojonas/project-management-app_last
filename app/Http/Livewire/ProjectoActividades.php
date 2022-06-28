@@ -40,7 +40,7 @@ class ProjectoActividades extends Component
             'nrProjecto'=> 'required',
         ]);
 
-        $projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+        $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
       
         if(!$projecto){
             $this->projecto = ['contratante'=>'', 'localizacao'=>'','prazo'=>'', 'descricao'=>'' ];
@@ -70,7 +70,7 @@ class ProjectoActividades extends Component
 
 
     public function voltar($total){
-        $projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+        $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
        
         $data=[
             'nrProjecto'=>$projecto['nrProjecto'],
@@ -88,7 +88,7 @@ class ProjectoActividades extends Component
     }
 
     public function custos($total, $totalReal){
-        $projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+        $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
         
         $data=[
             'nrProjecto'=>$projecto['nrProjecto'],

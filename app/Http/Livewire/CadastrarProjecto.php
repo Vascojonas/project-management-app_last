@@ -56,7 +56,7 @@ class CadastrarProjecto extends Component
             'prazo'=> 'required',
             'quantidade'=> 'required',
         ]);
-        $projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+        $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
         $projecto->update($data);
         return redirect('/projectos/capitulos/-'.$this->projecto_principal);
 
@@ -73,7 +73,7 @@ class CadastrarProjecto extends Component
             'prazo'=> 'required',
         ]);
 
-        $existe = Projecto::whereNrprojecto($data['nrProjecto'])->first();
+        $existe = Projecto::where('nrProjecto',$data['nrProjecto'])->first();
 
         if( $existe){
             session()->flash('codigoErro', 'Já existe um projecto com este código');

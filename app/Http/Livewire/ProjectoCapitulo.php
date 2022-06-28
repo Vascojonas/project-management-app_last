@@ -41,7 +41,7 @@ class ProjectoCapitulo extends Component
         if(count($arry)==2){
             //dd($arry);
             $this->nrProjecto=$arry[1];
-            $this->projecto= $projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+            $this->projecto= $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
             $this->adcionarValido=true;
             $this->projectoInfo();
 
@@ -58,7 +58,7 @@ class ProjectoCapitulo extends Component
 
         $this->projectosCode= Projecto::select('id','nrProjecto')->get();
 
-       $this->projecto= $projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+       $this->projecto= $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
        $this->projectoInfo();
         
     }
@@ -84,7 +84,7 @@ class ProjectoCapitulo extends Component
         ]);
         $novoServicoValido=false;
 
-        $projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+        $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
         $this->projecto=$projecto;
         if(!$projecto){
             $this->projecto=['contratante'=>'','prazo'=>'', 'descricao'=>'', 'localizacao'=>''];

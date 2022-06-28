@@ -61,7 +61,7 @@ class CustosIndirectos extends Component
             //dd($arry);
             $this->nrProjecto=$arry[1];
             $this->projecto_principal=$arry[2];
-            $this->projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+            $this->projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
 
             $this->custos= $custo =$this->projecto->custo;
             if( $custo){

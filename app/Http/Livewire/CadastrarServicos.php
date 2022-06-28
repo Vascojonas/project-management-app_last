@@ -110,7 +110,7 @@ class CadastrarServicos extends Component
             'nrProjecto'=> 'required',
         ]);
         
-        $projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+        $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
        
         if($projecto){
            $this->capitulos= $projecto->capitulos;

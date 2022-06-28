@@ -27,7 +27,7 @@ class CadastrarCapitulos extends Component
         $data= $this->validate([
             'nrProjecto'=> 'required',
         ]);
-        $this->projecto  =  $projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+        $this->projecto  =  $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
        
        if($projecto){
             $data= $projecto->capitulos;
@@ -50,7 +50,7 @@ class CadastrarCapitulos extends Component
 
     public function novoCapitulo($code){
 
-        $projecto= Projecto::whereNrprojecto($code)->first();
+        $projecto= Projecto::where('nrProjecto',$code)->first();
         $data= $projecto->capitulos;
 
         $capituloNr= count($data)+1;
