@@ -34,7 +34,7 @@ Route::get('/custos/{code}' , App\Http\Livewire\CustosIndirectos::class);
 Route::get('/projectos/relatorio/pdf/{code}' , [App\Http\Controllers\AppController::class,'activdadesRelatorio']);
 Route::get('/', [App\Http\Controllers\AppController::class,'carregarDados']);
 
-Route::get('/' , function(){
+Route::get('/xls' , function(){
     
     ini_set('max_execution_time', 300);
     $inputFileName = 'db.xls';
