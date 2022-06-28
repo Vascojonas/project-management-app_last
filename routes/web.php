@@ -20,7 +20,7 @@ use App\Models\Actividade;
 */
 
 Route::get('/', [App\Http\Controllers\AppController::class,'carregarDados']);
-Route::get('/' , App\Http\Livewire\CadastrarProjecto::class);
+//Route::get('/' , App\Http\Livewire\CadastrarProjecto::class);
 Route::get('/{code}' , App\Http\Livewire\CadastrarProjecto::class);
 Route::get('/servicos/cadastrar/{code}' , App\Http\Livewire\CadastrarServicos::class);
 Route::get('/servico/update/{code}' , App\Http\Livewire\CadastrarServicos::class);
