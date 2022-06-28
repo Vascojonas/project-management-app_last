@@ -33,7 +33,7 @@ class CadastrarProjecto extends Component
             $this->nrProjecto=$arry[1];
             $this->projecto_principal=$arry[2];
 
-           $projecto= Projecto::whereNrprojecto($this->nrProjecto)->first();
+           $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
             
            $this->nrProjecto=$projecto['nrProjecto'] ;
            $this->descricao=$projecto['descricao'] ;
