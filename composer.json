@@ -53,7 +53,13 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [],
+            "providers": [
+                "Livewire\\LivewireServiceProvider"
+            ],
+            "aliases": {
+                "Livewire": "Livewire\\Livewire"
+            }
         }
     },
     "config": {
