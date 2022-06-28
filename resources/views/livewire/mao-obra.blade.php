@@ -1,9 +1,9 @@
 <div>
-  <div class="d-flex justify-content-between mb-2 ">
+  <div class="d-flex justify-content-between mt-2 ">
     <h4>Mão de obra</h4>
  
-    <div>
-     <a href="/projectos/actividades/-{{$nrProjecto}}-{{$projecto_principal}}" class="btn btn-warning">Voltar</a>
+    <div class="mb-2">
+     <a href="/projectos/actividades/-{{$nrProjecto}}-{{$projecto_principal}}" class="btn btn-secondary">Voltar</a>
      </div>
 
   </div>

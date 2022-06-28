@@ -26,7 +26,7 @@
         
          
         <div class="">
-            <button wire:click="voltar" class="btn btn-warning col-3 offset-9">Voltar</button>
+            <button wire:click="voltar" class="btn btn-secondary col-3 offset-9">Voltar</button>
         </div>    
         <div class="row">
         </div>
@@ -210,10 +210,10 @@
                          <button wire:click="calcular" {{($actividadeValida)?'':'disabled '}} class="btn btn-warning col-4 ml-auto" >Recalcular</button>
 
                          @if ($custo)
-                            <button wire:click="actualizarCusto"  {{($actividadeValida)?'':'disabled '}} class="btn btn-warning col-4 ml-auto" >Actualizar</button>
+                            <button wire:click="actualizarCusto"  {{($actividadeValida)?'':'disabled '}} class="btn btn-secondary col-4 ml-auto" >Actualizar</button>
                          @else
                          
-                            <button wire:click="cadastrarCusto"  {{($actividadeValida)?'':'disabled '}} class="btn btn-warning col-4 ml-auto" >Salvar</button>
+                            <button wire:click="cadastrarCusto"  {{($actividadeValida)?'':'disabled '}} class="btn btn-secondary col-4 ml-auto" >Salvar</button>
                          @endif
                      </div>
                         

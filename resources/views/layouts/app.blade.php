@@ -18,9 +18,9 @@
     @livewireStyles
 </head>
 <body>
-    <div class="h-100"> <!--Inicio Conteiner-->
+    <div class="h-100 " style="width: 98.5%"> <!--Inicio Conteiner-->
        <div class="row">
-            <header class="bg-white w-100">
+            <header class="bg-white w-100 ">
                <div class="flex">
                    <img  src="{{ asset('imagens/logo.jpg') }}" class="logo float-left" style="width: 80px; ">
                    <h4 class="text-uppercase float-left mt-3">Projecto de sistemas de preço de construção cívil</h4>

@@ -18,7 +18,7 @@
 
             <div class="text-uppercase form-group d-flex justify-content-end col-4  p-0  ml-auto">
 
-              <a href="/servicos/cadastrar/-{{$nrProjecto}}-{{$projecto_principal}}" class="text-uppercase btn btn-warning ">Nova actividade</a>
+              <a href="/servicos/cadastrar/-{{$nrProjecto}}-{{$projecto_principal}}" class="text-uppercase btn btn-secondary ">Nova actividade</a>
               
             </div>
 
@@ -54,11 +54,11 @@
               <td>{{$actividade['preco_final']}},00 MT</td>
               <td>{{$actividade['preco_final']*$actividade['quantidade']}},00 MT</td>
               <td width="150" class="text-uppercase text-right">
-                <a href="/servico/update/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="text-uppercase fa fa-edit"></i></a>
+                <a href="/servico/update/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-circle btn-outline-secondary" title="Editar"><i class="text-uppercase fa fa-edit"></i></a>
                 @if ($actividade['unidade']=='H'||$actividade['unidade']=='h')
-                  <a href="/processar/pagamentos/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-outline-dark ">MO</a>         
+                  <a href="/processar/pagamentos/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-outline-primary" title="Mão de obra" >MO</a>         
                 @endif
-                <button wire:click="actividadeDelete({{$actividade['id']}})" class="text-uppercase btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="text-uppercase fa fa-times"></i></button>
+                <button wire:click="actividadeDelete({{$actividade['id']}})" class="text-uppercase btn btn-sm btn-circle btn-outline-danger" title="Eliminar"><i class="text-uppercase fa fa-times"></i></button>
 
               </td>
             </tr>
@@ -86,7 +86,7 @@
     </table> 
     <div class="text-uppercase col-12">
       <div class="text-uppercase form-group row col-12 p-0">
-        <button class="text-uppercase btn btn-warning col-4 " wire:click="voltar({{$total}})">Voltar</button>
+        <button class="text-uppercase btn btn-secondary col-4 " wire:click="voltar({{$total}})">Voltar</button>
         
         <button class="text-uppercase btn btn-warning col-4 ml-auto" wire:click="custos({{$total}},{{$totalReal}})">K</button>
         
