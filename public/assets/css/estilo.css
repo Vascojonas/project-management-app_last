@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../imagens/logo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+a
+.equerda {
+    border-left: 1px solid white;
+}
+
+.direita {
+    border-right: 1px solid white;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+    margin: 5px;
+}
+
+.float-left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.radius {
+    border-radius: 10px 10px 0px 0px;
+}
+
+a:hover,
+a:active,
+li:active {
+    background-color: #4a97da;
+    color: #428BCA;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.active {
+    background-color: #428BCA;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.cabecalho {
+    height: 50px;
+    text-align: justify;
+}
+
+.bb {
+    border: 1px solid red;
+}
