@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Error;
-use Exception;
+use App\Models\Actividade;
 use Livewire\Component;
 
 class MaoObra extends Component
@@ -11,6 +11,7 @@ class MaoObra extends Component
     public $nrProjecto;
     public $projecto_principal;
     public $actividadeId;
+    public $actividade;
     public $codigo;
 
     public $salario;
@@ -49,7 +50,7 @@ class MaoObra extends Component
     public $campoIncidenciaAcumulativa;
     public $campoTotalEncargosA;
     public $campoTotalEncargosB;
-    public $campoTotalEncargosC;
+    public $totalParcialC;
 
 
     public $campoPercetagem;
@@ -72,6 +73,8 @@ class MaoObra extends Component
             $this->actividadeId=$arry[1];
             $this->codigo =$arry[2];
             $this->projecto_principal =$arry[4];
+
+            $this->actividade= Actividade::find($this->actividadeId);
     
         }
         $this->total();
@@ -113,13 +116,13 @@ class MaoObra extends Component
             $this->valorAnosTrabalho =(int)$this->valorAnosTrabalho;
 
             if($s <=7){
-                $this->campoTotalEncargosC= round($this->valorAnosTrabalho*30/267,5);
+                $this->campoTotalParcialC= round($this->valorAnosTrabalho*30/$this->trabalhoAnual,5);
             } else if ($s>7 && $s<=10){
-                $this->campoTotalEncargosC= round($this->valorAnosTrabalho*15/267,5);
+                $this->campoTotalParcialC= round($this->valorAnosTrabalho*15/$this->trabalhoAnual,5);
             }else if ($s>10 && $s<=16){
-                $this->campoTotalEncargosC= round($this->valorAnosTrabalho*10/267,5);
+                $this->campoTotalParcialC= round($this->valorAnosTrabalho*10/$this->trabalhoAnual,5);
             }else{
-                $this->campoTotalEncargosC= round($this->valorAnosTrabalho*3/267,5);
+                $this->campoTotalParcialC= round($this->valorAnosTrabalho*3/$this->trabalhoAnual,5);
             }
 
             
@@ -272,11 +275,10 @@ class MaoObra extends Component
 
           $this->campoTotalParcialB=round($feriaAnual+ $campoRepousoSemanal+$campoFaltasJustificadas
                                     +$campoFeriados+$campoFeriadosCidade+$campo13SalarioB,5);
-          $this->campoTotalParcialC=$campo13SalarioC;
           
           $this->campoIncidenciaAcumulativa= round($this->campoTotalParcialA *$this->campoTotalParcialB,5);
          
-          $this->campoTotalEncargos=round($this->campoTotalParcialA +$this->campoTotalParcialB+ $this->campoTotalParcialC,5);
+          $this->campoTotalEncargos=round($this->campoTotalParcialA +$this->campoTotalParcialB,5);
           $this->campoPercetagem= round($this->campoTotalEncargos*100,2);
     }
 
@@ -285,6 +287,20 @@ class MaoObra extends Component
        $this->campo=$id;
     }
 
+    public function actualizar(){
+
+        $actividade= Actividade::find($this->actividadeId);
+
+        if($actividade){
+           $actividade->preco_final=$this->campoPercetagem;
+           $actividade->preco_unitario=$this->campoPercetagem;
+           $actividade->coeficiente=1;
+           $actividade->save();
+
+           session()->flash('success', 'Processo actualizado com sucesso');
+        }
+
+    }
 
 
     public function render()

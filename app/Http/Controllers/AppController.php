@@ -16,6 +16,80 @@ class AppController extends Controller
     public $projectos=[];
     public $capitulos=[];
 
+    public function relatorioExcel(){
+
+        
+        $current_url = \Request::fullUrl();
+        $arry = explode('-',$current_url );
+        
+
+        if(count($arry)==2){
+            //dd($arry);
+            $this->nrProjecto=$arry[1];
+            $this->projectoInfo();
+        }
+
+
+        $subTotal=0;
+        $superTotal=0;
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+       
+       
+        $count = 1;
+
+        foreach($this->capitulos as $capitulo){
+            $subTotal=0;
+
+            $sheet->setCellValue('C'.$count, 'Capitulo '.$capitulo);
+            $count++;
+         
+            $sheet->setCellValue('A'.$count, 'Serviço');
+            $sheet->setCellValue('B'.$count, 'Descrição')->getColumnDimension('B')->setWidth(50,'pt');
+            $sheet->setCellValue('C'.$count, 'Quantidade');
+            $sheet->setCellValue('D'.$count, 'Preço unitário');
+            $sheet->setCellValue('E'.$count, 'Preço Total');
+            $count++;
+            foreach($this->projectos as $projecto){
+                
+                if($capitulo==$projecto['capitulo']){
+                    $sheet->setCellValue('A'.$count, $projecto['nrProjecto']);
+                    $sheet->setCellValue('B'.$count, $projecto['descricao']);
+                    $sheet->setCellValue('C'.$count, $projecto['quantidade']);
+                    $sheet->setCellValue('D'.$count, $projecto['preco_unitario']);
+                    $sheet->setCellValue('E'.$count, $projecto['quantidade']*$projecto['preco_unitario']);
+                    
+                    $subTotal+=$projecto['quantidade']*$projecto['preco_unitario'];
+                    $count++;
+                }
+            }
+                $sheet->setCellValue('D'.$count, 'Sub Total '.$capitulo);
+                $sheet->setCellValue('E'.$count, $subTotal);
+                $superTotal+= $subTotal;
+                $count++;
+        }
+        $count++;
+
+        $sheet->setCellValue('D'.$count, 'Total');
+        $sheet->setCellValue('E'.$count, $superTotal);
+        $count++;
+        $sheet->setCellValue('D'.$count, 'IVA');
+        $sheet->setCellValue('E'.$count, $superTotal*0.17);
+        $count++;
+        $sheet->setCellValue('D'.$count, 'IVA');
+        $sheet->setCellValue('E'.$count, $superTotal+$superTotal*0.17);
+        $count++;
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="relatorio"'.time().'.xlsx"');
+        header('Cache-Control: max-age=0');
+        
+        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer->save('php://output');
+    }
+
 
     public function activdadesRelatorio(){
       
@@ -55,9 +129,13 @@ class AppController extends Controller
         $superTotal=0;
     
      $output = '
-     <h1 style="color: #240880">FACTURA</h1>
-     <div style="width:100%">
-       <span>PSPCV </span></br>
+     <div class=" justify-content-center">
+        <img  src="./imagens/logo.jpg" class="logo" style="width: 80px; "
+     <div>
+     <div style="width:100%"> 
+     </br>
+    
+     <span>PSPCV </span></br>
      <div style="width:100%; ">
           <span>Avenida Paulo Samuel Kankhomba, Maputo</span>
         <span style="margin: left 110px; margin-bottom:5px;;">'. now().'</span>
@@ -138,7 +216,7 @@ class AppController extends Controller
      ';
 
      return $output;
-    }
+}
 
 
 

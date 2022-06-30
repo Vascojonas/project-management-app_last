@@ -184,7 +184,9 @@
     </table> 
 
     </div>
-    <a href="/projectos/relatorio/pdf/-{{$nrProjecto}}" target="_blank" class="text-uppercase btn btn-secondary col-4">Imprimir</a>
+    <a href="/projectos/relatorio/pdf/-{{$nrProjecto}}" target="_blank" class="text-uppercase btn btn-warning col-2">Imprimir PDF</a>
+    <a href="/projectos/relatorio/excel/-{{$nrProjecto}}" target="_blank" class="text-uppercase btn btn-secondary col-2">Imprimir Excel</a>
+
 </div>
 <div>
   

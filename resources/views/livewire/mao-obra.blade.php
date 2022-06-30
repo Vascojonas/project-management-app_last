@@ -1,10 +1,18 @@
 <div>
+  <div class="col-12 mt-2">
+    @if (session()->has('success'))
+        <div class="alert alert-success text-center">
+            {{ session('success') }}
+        </div>
+    @endif
+</div>
   <div class="d-flex justify-content-between mt-2 ">
     <h4>Mão de obra</h4>
  
-    <div class="mb-2">
-     <a href="/projectos/actividades/-{{$nrProjecto}}-{{$projecto_principal}}" class="btn btn-secondary">Voltar</a>
-     </div>
+    <div class="d-flex justify-content-end mb-2 col-6  p-0">
+     <a href="/projectos/actividades/-{{$nrProjecto}}-{{$projecto_principal}}" class="btn btn-secondary col-3">Voltar</a>
+     <button wire:click="actualizar()" class="btn btn-warning col-3 ml-4">Actualizar</button>
+   </div>
 
   </div>
 
@@ -78,13 +86,13 @@
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row"> 13º salário</th>
                 <td class="p-0" ><input readonly wire:click="habilitar(22)" class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(23)" wire:model="campo13SalarioB" class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly wire:click="habilitar(24)" wire:model="campo13SalarioC" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(24000)" wire:model="campo13SalarioC" class="bg-light form-control-file" type="number" /></td>
               </tr>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Total Parcial</th>
                 <td class="p-0" ><input readonly wire:click="habilitar(25)" wire:model="campoTotalParcialA"  class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(26)" wire:model="campoTotalParcialB" class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly wire:click="habilitar(27)" wire:model="campoTotalParcialC" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(33)" wire:model="campoTotalParcialC" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
@@ -98,7 +106,7 @@
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Total dos Encargos</th>
                 <td class="p-0" ><input readonly wire:click="habilitar(31)" class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(32)" wire:model="campoTotalEncargosB" class="bg-light form-control-file" type="number" /></td>
-                <td class="p-0" ><input readonly wire:click="habilitar(33)" wire:model="campoTotalEncargosC" class="bg-light form-control-file" type="number" /></td>
+                <td class="p-0" ><input readonly wire:click="habilitar(3300)" wire:model="campoTotalEncargosC" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
               <tr>
@@ -260,22 +268,22 @@
                                     <button wire:click="calcularCampo(23)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
                                 </div>
                                 @else
-                                            @if ($campo===24)
+                                            @if ($campo===33)
 
                                             <div class="input-group mb-3">
                                               <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">Anos de Trabalho</span>
                                               </div>
                                               <input type="number" class="form-control" placeholder="Digite anos de trabalhos" aria-label="ferias"
-                                              aria-describedby="basic-addon1 " wire:model="valorAnosTrabalho"  wire:click="calcularCampo(24)">
+                                              aria-describedby="basic-addon1 " wire:model="valorAnosTrabalho"  wire:click="calcularCampo(33)">
                                             </div>
 
                                             <div class="input-group mb-3">
                                               <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basic-addon1">Dias do mês</span>
+                                                <span class="input-group-text" id="basic-addon1">Salário</span>
                                               </div>
                                               <input type="number" class="form-control" placeholder="Dias de ferias anuais" aria-label="ferias"
-                                              aria-describedby="basic-addon1 " wire:model="valorDiasMes"  wire:click="calcularCampo(24)">
+                                              aria-describedby="basic-addon1 " wire:model="salario"  wire:click="calcularCampo(33)">
                                             </div>
                                       
                                             <div class="input-group mb-3">
@@ -283,20 +291,20 @@
                                                   <span class="input-group-text" id="basic-addon1">Dias Trabalhavés</span>
                                                 </div>
                                                 <input type="number" class="form-control" placeholder="Dias trabalhaveis" 
-                                                aria-label="salario" aria-describedby="basic-addon1" wire:model="trabalhoAnual"  wire:click="calcularCampo(24)">
+                                                aria-label="salario" aria-describedby="basic-addon1" wire:model="trabalhoAnual"  wire:click="calcularCampo(33)">
                                           </div>    
                                           <div class="text-right">
-                                            <button wire:click="calcularCampo(24)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
+                                            <button wire:click="calcularCampo(33)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
                                         </div>
                                         @else
-                                        @if ($campo===33)
+                                        @if ($campo===330)
 
                                         <div class="input-group mb-3">
                                           <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Anos de Trabalho</span>
                                           </div>
                                           <input type="number" class="form-control" placeholder="Digite anos de trabalhos" aria-label="ferias"
-                                          aria-describedby="basic-addon1 " wire:model="valorAnosTrabalho"  wire:click="calcularCampo(33)">
+                                          aria-describedby="basic-addon1 " wire:model="valorAnosTrabalho"  wire:click="calcularCampo(330)">
                                         </div>
 
 
@@ -306,12 +314,12 @@
                                             <span class="input-group-text" id="basic-addon1">Salário</span>
                                           </div>
                                           <input type="number" class="form-control" placeholder="Dias de ferias anuais" aria-label="ferias"
-                                          aria-describedby="basic-addon1 " wire:model="salario"  wire:click="calcularCampo(33)">
+                                          aria-describedby="basic-addon1 " wire:model="salario"  wire:click="calcularCampo(330)">
                                         </div>
                                   
                                            
                                       <div class="text-right">
-                                        <button wire:click="calcularCampo(33)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
+                                        <button wire:click="calcularCampo(330)" class="btn btn-secondary col-4 ml-auto">Calcular</button>
                                     </div>
                                     @else
                                     
@@ -359,5 +367,7 @@
     </div>
     
   </div>
+
+
   
   

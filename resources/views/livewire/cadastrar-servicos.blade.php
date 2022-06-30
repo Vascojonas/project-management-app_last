@@ -66,7 +66,7 @@
                   placeholder="Digita o preço unitário" wire:keydown="calcular()" wire:keydown.Backspace="calcular()" wire:model="preco_unitario" />
                 </div>
                 <div class="col-md-4">
-                    <input class="form-control "   type="NUMBER" id="preco_final"  name="preco_finaç"
+                    <input class="form-control "   type="NUMBER" id="preco_final"  name="preco_final"
                     placeholder="Preço final" wire:model="preco_final" />
                     
                 </div>
