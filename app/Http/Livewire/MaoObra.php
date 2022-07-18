@@ -108,6 +108,7 @@ class MaoObra extends Component
             }
         }else if($campo==33){
             $salarioMinimo=6300;
+            $this->salario= (double)$this->salario;
             $s=$this->salario/$salarioMinimo;
             //Salarios 1-7 30 dias  end= anosDervico*30/267
             //salario 8-10 end= anoServico*15/267
@@ -278,8 +279,8 @@ class MaoObra extends Component
           
           $this->campoIncidenciaAcumulativa= round($this->campoTotalParcialA *$this->campoTotalParcialB,5);
          
-          $this->campoTotalEncargos=round($this->campoTotalParcialA +$this->campoTotalParcialB,5);
-          $this->campoPercetagem= round($this->campoTotalEncargos*100,2);
+          $this->campoTotalEncargosB=round($this->campoTotalParcialA + $this->campoTotalParcialB + $this->campoTotalParcialC+$this->campoIncidenciaAcumulativa,5);
+          $this->campoPercetagem= round($this->campoTotalEncargosB*100,2);
     }
 
 

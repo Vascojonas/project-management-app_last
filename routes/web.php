@@ -30,6 +30,7 @@ Route::get('/projectos/actividades/{code}' , App\Http\Livewire\ProjectoActividad
 Route::get('/projectos/actividades/{code}' , App\Http\Livewire\ProjectoActividades::class);
 Route::get('/capitulos' , App\Http\Livewire\CadastrarCapitulos::class);
 Route::get('/processar/pagamentos/-{code}' , App\Http\Livewire\MaoObra::class);
+Route::get('/actividades/equipamentos/-{code}' , App\Http\Livewire\Equipamentos::class);
 Route::get('/custos/{code}' , App\Http\Livewire\CustosIndirectos::class);
 Route::get('/projectos/relatorio/pdf/{code}' , [App\Http\Controllers\AppController::class,'activdadesRelatorio']);
 Route::get('/projectos/relatorio/excel/{code}' , [App\Http\Controllers\AppController::class,'relatorioExcel']);

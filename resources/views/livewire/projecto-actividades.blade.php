@@ -58,6 +58,12 @@
                 @if ($actividade['unidade']=='H'||$actividade['unidade']=='h')
                   <a href="/processar/pagamentos/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-outline-primary" title="Mão de obra" >MO</a>         
                 @endif
+                 
+                @if ($actividade['unidade']=='CHI'||$actividade['unidade']=='CHP')
+                <a href="/actividades/equipamentos/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-outline-primary" title="Mão de obra" >EQ</a>         
+                @endif
+
+
                 <button wire:click="actividadeDelete({{$actividade['id']}})" class="text-uppercase btn btn-sm btn-circle btn-outline-danger" title="Eliminar"><i class="text-uppercase fa fa-times"></i></button>
 
               </td>
