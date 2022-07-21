@@ -74,8 +74,8 @@
     <div class="text-uppercase d-flex">
 
       <div class="text-uppercase form-group d-flex col-4  p-0">
-          <label for="cotratante" class="text-uppercase col-md- col-form-label bg-secondary" >CONTRATANTE</label>
-           <div class="text-uppercase col-md-8 p-0">
+          <label for="cotratante" class="text-uppercase col-md-6 col-form-label bg-secondary" >CONTRATANTE</label>
+           <div class="text-uppercase col-md-6 p-0">
            <input class="text-uppercase form-control " readonly type="text" id="nrProjecto" name="contratante" 
            value="{{$projecto['contratante']}}" />
            </div>

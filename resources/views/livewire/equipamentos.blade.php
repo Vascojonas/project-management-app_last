@@ -97,9 +97,12 @@
             
                     <div class=" p-0 ml-auto" style="width: 38%">
                         <div class="col-12 p-0">
-                            @if ($campo==1)
-                                <div class="d-flex">
-                                    <div class="col-6">
+
+                            
+
+                            @if ($campo===1)
+                                <div class="">
+                                    <div class="">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Vo</span>
@@ -124,10 +127,10 @@
                                         </div>     
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basic-addon1">h</span>
+                                                <span class="input-group-text" id="basic-addon1">a</span>
                                             </div>
                                             <input type="number" class="form-control"
-                                            wire:model="dhoras" >
+                                            wire:model="da" >
                                         </div>    
                                         <div class="text-right">
                                             <button wire:click="calcularCampo(1)" class="btn btn-secondary  ml-auto">Calcular</button>
@@ -135,25 +138,31 @@
                                         
                                     </div>
 
-                                    <div class="col-6 text-white p-0">
-                                        <h4>Onde:</h4>
-                                        <p>
-                                            Dh- Depreciação horária <br>
-                                            Vo - Valor de aquisição(mts) <br/>
-                                            Vr - Valor de Residual<br/>
-                                            n- Vida útil e anos <br/>
-                                            a- Horas/ano<br/>
-                                        </p>
+                                    <div class="text-white p-0 bg-secondary mt-3">
+                                        <div class="col-12">
+                                            <img class="col-6" src="{{ asset('imagens/dh.png') }}">
+                                        </div>
+                                        <div>
+
+                                            <h4>Onde:</h4>
+                                            <p>
+                                                Dh- Depreciação horária <br/>
+                                                Vo= Valor de aquisição (MT) <br/>
+                                                Vr- Valor residual (MT)<br/> 
+                                                n- Vida útil (em anos) <br/> 
+                                                a – Horas de trabalho por ano
+                                            </p>
+                                        </div>
 
                                     </div>
 
                                 </div>
                             @endif
         
-                            @if ($campo==2)
+                            @if ($campo===2)
 
-                                <div class="d-flex">
-                                    <div class="col-6">
+                                <div class="">
+                                    <div class="">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Im</span>
@@ -203,211 +212,375 @@
 
                                     </div>
 
-                                    <div class="col-6 text-white">
-                                        <h4>Onde:</h4>
-                                        <p class="text-white">
-                                            jh- Juros horarios <br>
-                                            V - Valor de aquisição(mts) <br/>
-                                            Vr - Valor de Residual<br/>
-                                            Im - Investimento medio<br/>
-                                            i - taxa anual de juros<br>
+                                    <div class="mt-3 p-2 text-white bg-secondary">
+                                        <div class="col-12">
+                                            <img class="col-12" src="{{ asset('imagens/j.png') }}">
+                                        </div>
+                                        <div>
 
-                                            n- Vida útil e anos <br/>
-                                            a- Horas de utilizacao anual<br/>
-                                        </p>
+                                            <h4>Onde:</h4>
+                                            <p class="text-white">
+                                                Jh- Juros o horária <br>
+                                                Vo- Valor de aquisição (MT) <br>
+                                                Vr- Valor residual (MT)<br>
+                                                n- Vida útil (em anos) <br>
+                                                i – taxa de juros anuais (%)  <br>
+                                                a – Horas de trabalho por ano (h/ano)<br>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                            @endif
         
         
-                            @if ($campo==3)
-                                
-                            <div class="input-group mb-3">
-                                    <div>
-    
-    
-                                        
-                                        <div class="col-6 text-white">
-                                            <h4>Onde:</h4>
-                                            <p class="text-white">
-                                                jh- Juros horarios <br>
-                                                V - Valor de aquisição(mts) <br/>
-                                                Vr - Valor de Residual<br/>
-                                                Im - Investimento medio<br/>
-                                                i - taxa anual de juros<br>
-    
-                                                n- Vida útil e anos <br/>
-                                                a- Horas de utilizacao anual<br/>
-                                            </p>
+                            @if ($campo===3)
+
+                                <div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Vo</span>
                                         </div>
+                                        <input type="number" class="form-control"
+                                        wire:model="svo" >
+                                    </div>   
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Pa</span>
+                                        </div>
+                                        <input type="number" class="form-control"
+                                        wire:model="spa" >
+                                    </div> 
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">h</span>
+                                        </div>
+                                        <input type="number" class="form-control"
+                                        wire:model="shh" >
+                                    </div>        
+                                    <div class="text-right">
+                                        <button wire:click="calcularCampo(3)" class="btn btn-secondary  ml-auto">Calcular</button>
                                     </div>
-         
+                                </div>
+
+                                <div class=" text-white  bg-secondary mt-3 p-2">
+                                    <div class="col-12">
+                                        <img class="col-6" src="{{ asset('imagens/sg.jpeg') }}">
+                                    </div>
+                                    <div>
+
+                                        <h4>Onde:</h4>
+                                        <p class="text-white">
+                                            Sh- custo do seguro horário <br>
+                                            Vo- valor de aquisição<br>
+                                            Po- prémio anual do seguro do equipamento <br>
+                                            h- horas de trabalho
+                                        </p>
+                                    </div>
+                                </div>
+
+                            @endif
+
+                            @if ($campo===4)
+                                
+                                <div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">CMa</span>
+                                        </div>
+                                        <input type="number" class="form-control"
+                                        wire:model="acma" >
+                                    </div>   
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">ha</span>
+                                        </div>
+                                        <input type="number" class="form-control"
+                                        wire:model="aha" >
+                                    </div> 
+                                            
+                                    <div class="text-right">
+                                        <button wire:click="calcularCampo(4)" class="btn btn-secondary  ml-auto">Calcular</button>
+                                    </div>
+
+                                </div>
+
+                                <div class=" text-white  bg-secondary mt-3 p-2">
+                                    <div class="col-12">
+                                        <img class="col-12" src="{{ asset('imagens/a.jpeg') }}">
+                                    </div>
+                                    <div>
+
+                                        <h4>Onde:</h4>
+                                        <p class="text-white">
+                                            CAh- custo armazenamento horário <br>
+                                            CMA- valor mensal de armazenamento<br>
+                                            Ha- prémio anual do seguro do equipamento <br>
+                                            ha- horas de armazenamento;
+                                        </p>
+                                    </div>
+                                </div>
+                              <div class="input-group mb-3">
+                            @endif
+
+                            @if ($campo===5)
+                                
+                                <div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">P</span>
+                                        </div>
+                                        <input type="number" class="form-control"
+                                        wire:model="pp" >
+                                    </div>   
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Cp</span>
+                                        </div>
+                                        <input type="number" class="form-control"
+                                        wire:model="pcp" >
+                                    </div> 
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Vup</span>
+                                        </div>
+                                        <input type="number" class="form-control"
+                                        wire:model="pvup" >
+                                    </div> 
+                                            
+                                    <div class="text-right">
+                                        <button wire:click="calcularCampo(5)" class="btn btn-secondary  ml-auto">Calcular</button>
+                                    </div>
+
+                                </div>
+
+                                <div class=" text-white  bg-secondary mt-3 p-2">
+                                    <div class="col-12">
+                                        <img class="col-6" src="{{ asset('imagens/ph.jpeg') }}">
+                                    </div>
+                                    <div>
+
+                                        <h4>Onde:</h4>
+                                        <p class="text-white">
+                                            Ph- Custo horario de pneus <br>
+                                            P- Número de pneus do equipamento<br>
+                                            Cp-Custo unitário do pneu <br>
+                                            Vup- Vida útil do pneu;
+                                        </p>
+                                    </div>
+                                </div>
+                              <div class="input-group mb-3">
+                            @endif
+
+                            @if ($campo===6)
+                                
+                            <div>
+                                <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Vo</span>
+                                        <span class="input-group-text" id="basic-addon1">Hp</span>
                                     </div>
                                     <input type="number" class="form-control"
-                                    wire:model="svo" >
+                                    wire:model="ehp" >
                                 </div>   
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Pa</span>
+                                        <span class="input-group-text" id="basic-addon1">Custo</span>
                                     </div>
                                     <input type="number" class="form-control"
-                                    wire:model="spa" >
+                                    wire:model="ecusto" >
                                 </div> 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">h</span>
-                                    </div>
-                                    <input type="number" class="form-control"
-                                    wire:model="shh" >
-                                </div>        
+                                        
                                 <div class="text-right">
-                                    <button wire:click="calcularCampo(3)" class="btn btn-secondary  ml-auto">Calcular</button>
+                                    <button wire:click="calcularCampo(6)" class="btn btn-secondary  ml-auto">Calcular</button>
                                 </div>
-                            @endif
 
-                            @if ($campo==4)
-                                
-     
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">CMa</span>
-                                </div>
-                                <input type="number" class="form-control"
-                                wire:model="acma" >
-                            </div>   
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">ha</span>
-                                </div>
-                                <input type="number" class="form-control"
-                                wire:model="aha" >
-                            </div> 
-                                    
-                            <div class="text-right">
-                                <button wire:click="calcularCampo(4)" class="btn btn-secondary  ml-auto">Calcular</button>
                             </div>
+
+                            <div class=" text-white  bg-secondary mt-3 p-2">
+                                <div class="col-12">
+                                    <img class="col-12" src="{{ asset('imagens/eh.jpeg') }}">
+                                </div>
+                                <div>
+
+                                    <h4>Onde:</h4>
+                                    <p class="text-white">
+                                        Eh- Energia Eletrica (kw/h) <br>
+                                        Custo- valor mensal de armazenamento<br>
+                                        Ha-Custo de Energia (kw/h)<br>
+                                        Hp- Potência;
+                                    </p>
+                                </div>
+                            </div>
+                          <div class="input-group mb-3">
                         @endif
                             
                             @if ($campo==7)
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Im</span>
+
+                                <div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">HP</span>
+                                        </div>
+                                        <input type="number" class="form-control"  
+                                        aria-describedby="basic-addon1 " wire:model="chp">
                                     </div>
-                                    <input type="number" class="form-control"  
-                                    aria-describedby="basic-addon1 " wire:model="cim">
+            
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">f</span>
+                                        </div>
+                                        <input type="number" class="form-control"
+                                        wire:model="cf" >
+                                    </div> 
+                       
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">M</span>
+                                        </div>
+                                        <select class="form-control" wire:model="cm">
+                                            <option value="">Selecione</option>
+                                            <option value="0.15" >Diesel</option>
+                                            <option value="0.23" >Gasolina</option>
+
+                                        </select>
+                                    </div>   
+                         
+                                    <div class="text-right">
+                                        <button wire:click="calcularCampo(7)" class="btn btn-secondary  ml-auto">Calcular</button>
+                                    </div>
                                 </div>
-        
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">i</span>
+                                <div class="mt-3 p-2 text-white bg-secondary">
+                                    <div class="col-12">
+                                        <img class="col-12" src="{{ asset('imagens/c.png') }}">
                                     </div>
-                                    <input type="number" class="form-control"
-                                    wire:model="ci" >
-                                </div> 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">a</span>
+                                    <div >
+                                        <h4>Onde:</h4>
+                                        <p class="text-white">
+                                            Ch- Combutivel <br>
+                                            HP- Potencia <br>
+                                            f- Factor Potencia<br>
+                                            M- Motor<br>
+                                        </p>
                                     </div>
-                                    <input type="number" class="form-control"
-                                    wire:model="ca" >
-                                </div>     
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Vo</span>
-                                    </div>
-                                    <input type="number" class="form-control"
-                                    wire:model="cvo" >
-                                </div>   
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Vr</span>
-                                    </div>
-                                    <input type="number" class="form-control"
-                                    wire:model="cvr" >
-                                </div> 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">n</span>
-                                    </div>
-                                    <input type="number" class="form-control"
-                                    wire:model="cn" >
-                                </div>        
-                                <div class="text-right">
-                                    <button wire:click="calcularCampo(7)" class="btn btn-secondary  ml-auto">Calcular</button>
                                 </div>
                             @endif
         
         
                             @if ($campo==8)
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Hp</span>
-                                    </div>
-                                    <input type="number" class="form-control"  
-                                    aria-describedby="basic-addon1 " wire:model="lhp">
+                                <div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Hp</span>
+                                            </div>
+                                            <input type="number" class="form-control"  
+                                            aria-describedby="basic-addon1 " wire:model="lhp">
+                                        </div>
+                
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">h</span>
+                                            </div>
+                                            <input type="number" class="form-control"
+                                            wire:model="lhh" >
+                                        </div> 
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">c</span>
+                                            </div>
+                                            <input type="number" class="form-control"
+                                            wire:model="lc" >
+                                        </div>     
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">t</span>
+                                            </div>
+                                            <input type="number" class="form-control"
+                                            wire:model="lt" >
+                                        </div>   
                                 </div>
-        
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">h</span>
-                                    </div>
-                                    <input type="number" class="form-control"
-                                    wire:model="lhh" >
-                                </div> 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">c</span>
-                                    </div>
-                                    <input type="number" class="form-control"
-                                    wire:model="lc" >
-                                </div>     
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">t</span>
-                                    </div>
-                                    <input type="number" class="form-control"
-                                    wire:model="lt" >
-                                </div>   
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Vr</span>
-                                    </div>
-                                    <input type="number" class="form-control"
-                                    wire:model="lvr" >
-                                </div> 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">n</span>
-                                    </div>
-                                    <input type="number" class="form-control"
-                                    wire:model="ln" >
-                                </div>        
+
                                 <div class="text-right">
                                     <button wire:click="calcularCampo(8)" class="btn btn-secondary  ml-auto">Calcular</button>
                                 </div>
+
+                                <div class="mt-3 p-2 text-white bg-secondary">
+                                    <div class="col-6">
+                                        <img src="{{ asset('imagens/l.png') }}">
+                                    </div>
+                                    <div >
+                                        <h4>Onde:</h4>
+                                        <p class="text-white">
+                                            Q- Consumo em l/h <br>
+                                            HP- Potencial do motor <br>
+                                            t- Intervaldo de troca<br>
+                                            c - Capacidade (litros) <br>
+                                            
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                     
+                               
                             @endif
         
                             @if ($campo==10)
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Vo</span>
-                                    </div>
-                                    <input type="number" class="form-control"  
-                                    aria-describedby="basic-addon1 " wire:model="mvo">
+                                <div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span  wire:click="detalhesK()" class="input-group-text" id="basic-addon1">K</span>
+                                        </div>
+                                        <input type="number" readonly wire:click="detalhesK()" class="form-control" wire:model="mk" >
+                                    
+                                    </div> 
+                                    
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Vo</span>
+                                            </div>
+                                            <input type="number" class="form-control"  
+                                            aria-describedby="basic-addon1 " wire:model="mvo">
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">n</span>
+                                            </div>
+                                            <input type="number" class="form-control"  
+                                            aria-describedby="basic-addon1 " wire:model="mn">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">h</span>
+                                            </div>
+                                            <input type="number" class="form-control"  
+                                            aria-describedby="basic-addon1 " wire:model="mhh">
+                                        </div>
+                
+                                       
+                                                
+                                        <div class="text-right">
+                                            <button wire:click="calcularCampo(10)" class="btn btn-secondary  ml-auto">Calcular</button>
+                                        </div>
                                 </div>
-        
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span  wire:click="detalhesK()" class="input-group-text" id="basic-addon1">K</span>
+
+                                <div class="mt-3 p-2 text-white bg-secondary" >
+                                    <div class="col-6">
+                                        <img src="{{ asset('imagens/m.png') }}">
                                     </div>
-                                    <input type="number" readonly wire:click="detalhesK()" class="form-control" wire:model="mk" >
-                                
-                                </div> 
-                                        
-                                <div class="text-right">
-                                    <button wire:click="calcularCampo(10)" class="btn btn-secondary  ml-auto">Calcular</button>
+                                    <div class="">
+                                        <h4>Onde:</h4>
+                                        <p class="text-white">
+                                            Chm- custo horário de manutenção; 
+                                           <br> Vo- valor de aquisição; 
+                                           <br> n-vida útil do equipamento (em anos);
+                                           <br> h- horas de trabalho
+                                           <br> K-coeficiente de custo de manutenção apresentado na tabela
+                                            
+                                        </p>
+                                    </div>
+                                    
                                 </div>
                             @endif
                         </div>
@@ -912,7 +1085,6 @@
                                 </div> 
 
                                 <div class="d-flex justify-content-end mt-3 p-0">
-                                    <button wire:click="valorK()" class="btn btn-warning col-4 mr-2">Calcular</button>
                                     
                                     <button wire:click="detalhesK()" class="btn btn-secondary ">Fechar</button>
                                 </div>

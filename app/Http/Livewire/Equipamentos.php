@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-
+use App\Models\Actividade;
 class Equipamentos extends Component
 {
     public $nrProjecto;
@@ -37,7 +37,7 @@ class Equipamentos extends Component
     public $dvi;
     public $dr;
     public $dn;
-    public $dhoras;
+    public $da;
 
     //Juros
     public $jim;
@@ -55,13 +55,11 @@ class Equipamentos extends Component
 
      //Combustivel
 
-     public $cim;
-     public $ci;
-     public $ca;
-     public $cvo;
-     public $cvr;
-     public $cn;
-
+     public $chp;
+     public $cf;
+     public $cpi;
+     public $cm;
+    
      //lubrificante
 
      public $lhp;
@@ -73,6 +71,8 @@ class Equipamentos extends Component
 
      //Manutencao
      public $mvo;
+     public $mn;
+     public $mhh;
      public $mk;
 
      //variaveis para k
@@ -92,10 +92,17 @@ class Equipamentos extends Component
      public $acma;
      public $aha;
 
+     //Pneus
+     public $pp;
+     public $pcp;
+     public $pvup;
+
+     //Energia
+     public $ehp;
+     public $ecusto;
 
 
-     
-  
+      
 
      public function mount(){
         $current_url = \Request::fullUrl();
@@ -185,7 +192,7 @@ class Equipamentos extends Component
 
     public function calcularCampo($campo){
         if($campo==1){
-            $this->dh = round(($this->dvi-$this->dr)/($this->dn*$this->dhoras),5);
+            $this->dh = round(($this->dvi-$this->dr)/($this->dn*$this->da),5);
         }else if($campo==2){
             
            $numerador= $this->ji*($this->jvo-$this->jvr)*($this->jn+1);
@@ -203,11 +210,21 @@ class Equipamentos extends Component
             $numerador= $this->acma;
             $denuminador= $this->aha;
             $this->ah = round($numerador/$denuminador,2);
+         }else if($campo==5){
+            
+            $numerador= $this->pp*$this->pcp;
+            $denuminador= $this->pvup;
+            $this->ph = round($numerador/$denuminador,2);
+         }else if($campo==6){
+            
+            $numerador= $this->ehp*$this->ecusto*0.75;
+            $denuminador=1;
+            $this->eh = round($numerador/$denuminador,2);
          }else if($campo==7){
             
-            $numerador= $this->ci*($this->cvo-$this->cvr)*($this->cn+1);
-            $denuminador= $this->ca*$this->cn*2;
-            $this->ch =  round($numerador/$denuminador + $this->cvr,2);
+            $numerador= $this->cf*$this->chp*$this->cm;
+            $denuminador= 1;
+            $this->ch =  round($numerador/$denuminador ,2);
          }else if($campo==8){
             
             $numerador= $this->lhp*0.6*0.0027;
@@ -217,7 +234,7 @@ class Equipamentos extends Component
          else if($campo==10){
             
             $numerador= $this->mk*$this->mvo;
-            $denuminador= 100;
+            $denuminador= $this->mn*$this->mhh;
             $this->mh =  round($numerador/$denuminador,2);
          }
 
@@ -251,8 +268,26 @@ class Equipamentos extends Component
 
 
     public function habilitar($id){
+       
         $this->campo=$id;
      }
+
+
+     public function actualizar(){
+
+        $actividade= Actividade::find($this->actividadeId);
+
+        if($actividade){
+           $actividade->preco_final=$this->totalP;
+           $actividade->preco_unitario=$this->totalP;
+           $actividade->coeficiente=1;
+           $actividade->save();
+
+           session()->flash('success', 'Processo actualizado com sucesso');
+        }
+
+    }
+
 
     public function render()
     {
