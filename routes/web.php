@@ -19,6 +19,12 @@ use App\Models\Actividade;
 |
 */
 
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
+
+
+
 Route::get('/' , App\Http\Livewire\CadastrarProjecto::class);
 Route::get('/{code}' , App\Http\Livewire\CadastrarProjecto::class);
 Route::get('/servicos/cadastrar/{code}' , App\Http\Livewire\CadastrarServicos::class);
