@@ -5,7 +5,7 @@
             {{ session('success') }}
         </div>
     @endif
-</div>
+  </div>
   <div class="d-flex justify-content-between mt-2 ">
     <h4>Mão de obra</h4>
  

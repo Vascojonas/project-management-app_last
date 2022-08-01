@@ -25,5 +25,10 @@ class Actividade extends Model
         return $this->belongsTo(Projecto::class);
     }
 
+    public function equipamento()
+    {
+        return $this->hasOne(Equipamento::class);
+    }
+
     
 }
