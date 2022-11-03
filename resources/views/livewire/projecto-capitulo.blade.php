@@ -1,3 +1,11 @@
+<?php
+  $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+
+  $file= "file:///$rootDir/storage/SUMARIO_DE_PUBLICACOES_E_DOCUMENTACAO_DO_SINAPI.pdf";
+  // dd($file);
+?>
+
+
 <div class="text-uppercase  ">
     <div class="text-uppercase text-right col-6 offset-4 p-0">
         @error('capitulo') <span class="text-uppercase text-danger ml-auto">{{ $message }}</span> @enderror
@@ -8,13 +16,15 @@
     <span class="text-uppercase text-danger"> {{ session('codigoErro') }}</span>
     @endif
     @error('nrProjecto') <span class="text-uppercase text-danger">{{ $message }}</span> @enderror
-    <div class="text-uppercase d-flex p-0">
-      <div class="text-uppercase form-group d-flex col-4 mt-3">
+    <div class="text-uppercase d-flex p-0 ">
+      <div class="text-uppercase form-group d-flex col-4 mt-3 p-0">
           <div class="text-uppercase col-md-8 p-0">
               <input class="text-uppercase form-control " type="number" id="nrProjecto" name="nrProjecto"  wire:model="nrProjecto" 
               placeholder="Digite o numero do projecto" wire:keydown.Enter="projectoInfo()"/>
           </div>
           <button class="text-uppercase btn btn-warning col-4" wire:click="projectoInfo()">Visualizar</button>
+          <a href="{{asset('storage/SUMARIO_DE_PUBLICACOES_E_DOCUMENTACAO_DO_SINAPI.pdf')}}" title="Sumário de código" class="text-uppercase btn btn-warning ml-2">Códigos</a>
+
       </div>
 
      
@@ -191,3 +201,10 @@
 <div>
   
 </div>
+
+
+
+
+
+
+

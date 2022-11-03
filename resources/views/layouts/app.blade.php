@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{{ asset('css/estilo.css') }}">
-    <script src="{{ asset('js/app.js') }}"></script>
 
     <link href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel = "stylesheet">
 
@@ -48,6 +47,13 @@
      
     @livewireScripts
     <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false"></script>
+    <script src="{{asset('js/k_custos_inirectos.js')}}"></script>
+
+    <script src="{{asset('assets/js/vendor-all.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/ripple.js"></script')}}>
+    <script src="{{asset('assets/js/pcoded.min.js"></')}}script>
+	<script src="{{asset('assets/js/menu-setting.min.js')}}"></script>
 
 </body>
 </html>

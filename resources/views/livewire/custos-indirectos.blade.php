@@ -92,42 +92,42 @@
                         @if ($campo==1)
                         <input wire:keydown.Enter="fecharCampo()" wire:model="d1_txt"  type="text" class="col-md-6 col-form-label bg-secondary" style="height:36px;"/>
                         @else
-                            <label for="outras_despesas1" class="col-md-6 col-form-label bg-secondary" style="height:36px;">{{$d1_txt}}</label>
+                            <label for="monomento" class="col-md-6 col-form-label bg-secondary" style="height:36px;">Emolumento (%)</label>
                         @endif
-                         <div class="col-md-4 pr-0 ">
-                         <input class="form-control "  {{($habilitar==1)?'':'readonly'}} type="NUMBER" id="outras_despesas1"  name="outras_despesas1" wire:model="d1_value"
+                         <div class="col-md-6 ">
+                         <input class="form-control "  {{($habilitar==1)?'':'readonly'}} type="NUMBER" id="monomento"  name="outras_despesas1" wire:model="d1_value"
                          placeholder=" "  />
                         </div>
-                        <button class="btn col-1 ml-4  btn-circle btn-secondary m-0 btn-outline-light" wire:click="editarCampo(1)"
-                        {{($actividadeValida)?'':'disabled '}} title="Edit"><i class="fa fa-edit"></i></button>
+                        {{-- <button class="btn col-1 ml-4  btn-circle btn-secondary m-0 btn-outline-light" wire:click="editarCampo(1)"
+                        {{($actividadeValida)?'':'disabled '}} title="Edit"><i class="fa fa-edit"></i></button> --}}
                      </div>
                      <div class="form-group row mt-3">
                         @if ($campo==2)
                             <input wire:keydown.Enter="fecharCampo()" wire:model="d2_txt" type="text" class="col-md-6 col-form-label bg-secondary" style="height:36px;"/>
                         @else
-                            <label for="outras_despesas2" class="col-md-6 col-form-label bg-secondary" style="height:36px;">{{$d2_txt}}</label>
+                            <label for="outras_despesas2" class="col-md-6 col-form-label bg-secondary" style="height:36px;">Despesa 1 (%)</label>
                         @endif
                         
-                         <div class="col-md-4 pr-0">
+                         <div class="col-md-6 ">
                          <input  class="form-control " {{($habilitar==2)?'':'readonly'}}  type="NUMBER" id="outras_despesas2"  name="outras_despesas2" wire:model="d2_value"
                          placeholder=" "  />
                          </div>
-                        <button class="btn col-1 ml-4  btn-circle btn-secondary m-0 btn-outline-light" wire:click="editarCampo(2)"
-                         {{($actividadeValida)?'':'disabled '}} title="Edit"><i class="fa fa-edit"></i></button>
+                        {{-- <button class="btn col-1 ml-4  btn-circle btn-secondary m-0 btn-outline-light" wire:click="editarCampo(2)"
+                         {{($actividadeValida)?'':'disabled '}} title="Edit"><i class="fa fa-edit"></i></button> --}}
     
                      </div>
                      <div class="form-group row mt-3">
                         @if ($campo==3)
                         <input wire:keydown.Enter="fecharCampo()" wire:model="d3_txt"  type="text" class="col-md-6 col-form-label bg-secondary" style="height:36px;"/>
                         @else
-                            <label for="outras_despesas3" class="col-md-6 col-form-label bg-secondary" style="height:36px;">{{$d3_txt}}</label>
+                            <label for="outras_despesas3" class="col-md-6 col-form-label bg-secondary" style="height:36px;">Despesa 2 (%)</label>
                         @endif
-                         <div class="col-md-4 pr-0">
+                         <div class="col-md-6">
                          <input class="form-control "  {{($habilitar==3)?'':'readonly'}} type="NUMBER" id="outras_despesas3"  name="outras_despesas3" wire:model="d3_value"
                          placeholder=" "  />
                          </div>
-                        <button class="btn col-1 ml-4  btn-circle btn-secondary m-0 btn-outline-light" wire:click="editarCampo(3)" 
-                         {{($actividadeValida)?'':'disabled '}}title="Edit"><i class="fa fa-edit"></i></button>
+                        {{-- <button class="btn col-1 ml-4  btn-circle btn-secondary m-0 btn-outline-light" wire:click="editarCampo(3)" 
+                         {{($actividadeValida)?'':'disabled '}}title="Edit"><i class="fa fa-edit"></i></button> --}}
     
                      </div>
                      
@@ -230,8 +230,38 @@
     
             </div>
 
-
-      
         </div>
 </div>
-</body>
+
+<div class="card-body">
+    <button type="hidden" id="btn" data-toggle="modal" data-target=".bd-example-modal-lg"></button>
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title h4" id="myLargeModalLabel">Emolumento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label class="floating-label" for="Email">Valor do trabalho</label>
+                                <input type="number" class="form-control" id="valor_emolumento">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="floating-label" for="Text">Percetual <span id="percentual"><span></label>
+                                <input type="text" class="form-control" id="emolumento_percentual">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
