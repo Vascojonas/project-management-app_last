@@ -1,5 +1,9 @@
+
+
+
 let monomento = document.getElementById("monomento");
    
+if(monomento){
 let modal =document.getElementById('btn');
 
 monomento.addEventListener('click', ()=>{
@@ -32,11 +36,52 @@ valor_emolumento.addEventListener('keydown', (e)=>{
         r_emolumento.value= result;
 
         monomento.value= p*100;
+
+        Livewire.emit('getValue1ForInput', monomento.value);
         
     }else{
         p_emolumento.innerHTML=""
         r_emolumento.value=""
         monomento.value=""
+        Livewire.emit('getValue1ForInput', 0);
+
     }
 
 })
+
+}
+
+
+function custosIndirectos (){
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-outline-success ml-2',
+          cancelButton: 'btn btn-outline-secondary'
+        },
+        buttonsStyling: false
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: '',
+        text: "Desejas utilizar o valor já calculado? ",
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'Não',
+        confirmButtonText: 'Sim',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          document.getElementById('custos_indirectos_pronto').click()
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+              document.getElementById('custos_indirectos').click()
+          }
+      })
+}
+
+
+
+
+

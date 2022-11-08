@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Livewire;
-use App\Models\Projecto;
-use App\Models\Capitulo;
-use App\Models\Actividade;
-use Livewire\Component;
 use PDF;
+use App\Models\Custo;
+use Livewire\Component;
+use App\Models\Capitulo;
+use App\Models\Projecto;
+use App\Models\Actividade;
+use Illuminate\Support\Facades\DB;
 
 class ProjectoActividades extends Component
 {   
@@ -20,6 +22,11 @@ class ProjectoActividades extends Component
 
     public $totalReal;
 
+
+    protected $listeners = [
+        'custos'
+
+   ];
 
     public function mount(){
         $current_url = \Request::fullUrl();
@@ -91,7 +98,7 @@ class ProjectoActividades extends Component
         $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
         
         $data=[
-            'nrProjecto'=>$projecto['nrProjecto'],
+        'nrProjecto'=>$projecto['nrProjecto'],
         'descricao'=>$projecto['descricao'],
         'contratante'=>$projecto['contratante'],
         'localizacao'=>$projecto['localizacao'],
@@ -104,6 +111,57 @@ class ProjectoActividades extends Component
         
         return redirect('/custos/-'.$this->nrProjecto.'-'.$this->projecto_principal.'-'.$totalReal);
 
+    }
+
+
+    public function lastCustoIndirecto(){
+        $c = DB::table('custos')->orderBy('updated_at', 'desc')->first();
+
+        // +"id": 1
+        // +"projecto_id": 2506
+        // +"despesas_inicial": "0"
+        // +"administracao_local": "2"
+        // +"administracao_central": "5"
+        // +"despesas_finaceiras": "0"
+        // +"despesas_manutencao": "2"
+        // +"riscos": "3"
+        // +"despesa_1": "95"
+        // +"despesa_2": "0"
+        // +"despesa_3": "0"
+        // +"iva": "17"
+        // +"irps": "0"
+        // +"tributo_1": "0"
+        // +"tributo_2": "0"
+        // +"tributo_3": "0"
+        // +"lucro_bruto": "25"
+        // +"indutor_custo": "3.16"
+        // +"created_at": "2022-11-08 10:07:56"
+        // +"updated_at": "2022-11-08 10:07:56"
+
+        $custo =[
+            'despesas_inicial'=>$c->despesas_inicial,
+            'administracao_local' =>$c->administracao_local,
+            'administracao_central' => $c->administracao_central,
+            'despesas_finaceiras' => $c->despesas_finaceiras,
+            'despesas_manutencao'=> $c->despesas_manutencao,
+            'riscos'=>$c->riscos,
+            'despesa_1' => $c->despesa_1,
+            'despesa_2' =>$c->despesa_2,
+            'despesa_3' => $c->despesa_3,
+            'iva'=>$c->iva,
+            'irps'=> $c->irps,
+            'tributo_1'=>$c->tributo_1,
+            'tributo_2'=>$c->tributo_2,
+            'tributo_3'=>$c->tributo_3,
+            'lucro_bruto'=>$c->lucro_bruto,
+            'indutor_custo'=>$c->indutor_custo,
+       ];
+      
+        $c = new Custo($custo);
+        
+       $this->projecto->custo()->save($c);
+
+       return redirect('/projectos/capitulos/-'.$this->projecto_principal);
     }
 
     public function actividadeDelete($id){

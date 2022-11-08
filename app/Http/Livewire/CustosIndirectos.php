@@ -49,6 +49,16 @@ class CustosIndirectos extends Component
     public $d2_value;
     public $d3_value;
 
+    protected $listeners = [
+        'getValue1ForInput'
+   ];
+
+   public function getValue1ForInput($value)
+{
+    if(!is_null($value))
+        $this->d1_value = $value;
+}
+
     public $campo, $habilitar=false;
 
 
@@ -76,13 +86,8 @@ class CustosIndirectos extends Component
                  $this->taxa_iva=$custo['iva'];
                  $this->taxa_lucroBruto=$custo['lucro_bruto'];
                  $this->taxa_riscos=$custo['riscos'];
+                 $this->d1_value= $custo['despesa_1'];
                 
-                if($custo['despesa_1']!=0){
-                    $array = explode("=",$custo['despesa_1'] );
-
-                    $this->d1_txt=$array[0];
-                    $this->d1_value=$array[1];
-                }
 
                 if($custo['despesa_2']!=0){
                     $array = explode("=",$custo['despesa_2'] );
@@ -115,6 +120,7 @@ class CustosIndirectos extends Component
     }
     
     public function calcular(){
+        // dd($this->d1_value);
         $data= $this->validate([
             'preco_unitario'=> 'required',
         ]);
@@ -125,15 +131,16 @@ class CustosIndirectos extends Component
        $df= $this->df = 0;
        $dm=$this->dm = round($this->preco_unitario*($this->taxa_dm/100) ,2);
        $iva= $this->iva = round($this->preco_unitario*($this->taxa_iva/100), 2);
-        $r=$this->riscos = round($this->preco_unitario*($this->taxa_riscos/100),2);
+      $r=$this->riscos = round($this->preco_unitario*($this->taxa_riscos/100),2);
        $l= $this->lucroBruto = round($this->preco_unitario*($this->taxa_lucroBruto/100) , 2);
         
-       $this->d1_value= ($this->d1_value=='')? 0:$this->d1_value;
+        //$this->d1_value= $this->d1_value/100;
        $this->d2_value= ($this->d2_value=='')? 0:$this->d2_value;
        $this->d3_value= ($this->d3_value=='')? 0:$this->d3_value;
    
        $numerador= (1+($this->taxa_al/100 +$this->taxa_ac/100+$this->taxa_riscos/100+$this->taxa_dm/100
         +$this->taxa_df/100 +$this->d1_value/100+$this->d2_value/100+$this->d3_value/100));
+
         $denominador=((1/(1+$this->taxa_lucroBruto/100))+(1/(1+$this->taxa_iva/100))-1);
      
       $k= $numerador/$denominador;
@@ -164,6 +171,7 @@ class CustosIndirectos extends Component
 
     public function cadastrarCusto(){
         $this->calcular();
+    
 
         $data= $this->validate([
             'taxa_di' => 'required',
@@ -174,8 +182,12 @@ class CustosIndirectos extends Component
             'taxa_riscos' => 'required',
             'taxa_iva' => 'required',
             'taxa_lucroBruto' => 'required',
-            'k' => 'required'
+            'k' => 'required',
+            'd1_value'=>'required'
+           
         ]);
+
+    
 
         $custo =[
             'despesas_inicial'=>$data['taxa_di'],
@@ -184,7 +196,7 @@ class CustosIndirectos extends Component
             'despesas_finaceiras' =>$data['taxa_df'],
             'despesas_manutencao'=>$data['taxa_dm'],
             'riscos'=>$data['taxa_riscos'],
-            'despesa_1' => 0,
+            'despesa_1' => $data['d1_value'],
             'despesa_2' => 0,
             'despesa_3' => 0,
             'iva'=>$data['taxa_iva'],
@@ -194,15 +206,13 @@ class CustosIndirectos extends Component
             'tributo_3'=>0,
             'lucro_bruto'=>$data['taxa_lucroBruto'],
             'indutor_custo'=>$data['k']
-    ];
+       ];
 
 
 
 
 
-        if($this->d1_value!=0){
-            $custo['despesa_1'] = $this->d1_txt .'='. $this->d1_value;
-        }
+
         if($this->d2_value){
             $custo['despesa_2']= $this->d2_txt .'='. $this->d2_value;
         }
@@ -230,7 +240,8 @@ class CustosIndirectos extends Component
             'taxa_riscos' => 'required',
             'taxa_iva' => 'required',
             'taxa_lucroBruto' => 'required',
-            'k' => 'required'
+            'k' => 'required',
+            'd1_value'=>'required'
         ]);
 
         $custo =[
@@ -240,7 +251,7 @@ class CustosIndirectos extends Component
             'despesas_finaceiras' =>$data['taxa_df'],
             'despesas_manutencao'=>$data['taxa_dm'],
             'riscos'=>$data['taxa_riscos'],
-            'despesa_1' => 0,
+            'despesa_1' => $data['d1_value'],
             'despesa_2' => 0,
             'despesa_3' => 0,
             'iva'=>$data['taxa_iva'],
@@ -252,9 +263,8 @@ class CustosIndirectos extends Component
             'indutor_custo'=>$data['k']
     ];
 
-        if($this->d1_value!=0){
-            $custo['despesa_1'] = $this->d1_txt .'='. $this->d1_value;
-        }
+ 
+
         if($this->d2_value){
             $custo['despesa_2']= $this->d2_txt .'='. $this->d2_value;
         }
@@ -283,3 +293,6 @@ class CustosIndirectos extends Component
         return view('livewire.custos-indirectos');
     }
 }
+
+
+

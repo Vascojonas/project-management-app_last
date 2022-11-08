@@ -94,7 +94,9 @@
       <div class="text-uppercase form-group row col-12 p-0">
         <button class="text-uppercase btn btn-secondary col-4 " wire:click="voltar({{$total}})">Voltar</button>
         
-        <button class="text-uppercase btn btn-warning col-4 ml-auto" wire:click="custos({{$total}},{{$totalReal}})">K</button>
+        <button class="text-uppercase btn btn-warning col-4 ml-auto" id="" onclick="custosIndirectos()" >K</button>
+        <button id="custos_indirectos" class="d-none"  wire:click="custos({{$total}},{{$totalReal}})"></button>
+        <button id="custos_indirectos_pronto" class="d-none"  wire:click="lastCustoIndirecto()"></button>
         
        </div>
     </div>

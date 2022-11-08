@@ -95,7 +95,7 @@
                             <label for="monomento" class="col-md-6 col-form-label bg-secondary" style="height:36px;">Emolumento (%)</label>
                         @endif
                          <div class="col-md-6 ">
-                         <input class="form-control "  {{($habilitar==1)?'':'readonly'}} type="NUMBER" id="monomento"  name="outras_despesas1" wire:model="d1_value"
+                         <input class="form-control "  type="NUMBER" id="monomento"  name="outras_despesas1" wire:model="d1_value"
                          placeholder=" "  />
                         </div>
                         {{-- <button class="btn col-1 ml-4  btn-circle btn-secondary m-0 btn-outline-light" wire:click="editarCampo(1)"
@@ -265,3 +265,7 @@
         </div>
     </div>
 </div>
+
+
+
+    
