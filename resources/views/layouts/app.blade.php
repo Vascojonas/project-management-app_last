@@ -32,6 +32,10 @@
                         <li class="nav-item w-50   radius text-center direita"> 
                             <a class="text-uppercase nav-link text-white" href="/projectos/capitulos">Projectos-capitulos</a>
                         </li>
+                        <li class="nav-item w-50   radius text-center direita"> 
+                            <a href="{{asset('imagens/sm.pdf')}}" title="Sumário de código" class="text-uppercase btn btn-warning ml-2">Sunario de codigos</a>
+                        </li>
+
                         
                     </ul>
                 </nav>

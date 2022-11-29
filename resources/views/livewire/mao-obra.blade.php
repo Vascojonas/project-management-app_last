@@ -34,54 +34,86 @@
             </thead>
             <tbody>
               <tr>
-                <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">INSS</th>
+                <th  onmouseover="exibirLegenda(event)" onmouseout="fecharLegenda(event)"   data-legenda="inss"  class="pb-1 pt-1 mb-1 mt-1"  scope="row">INSS</th>
                 <td class="p-0" ><input readonly wire:click="habilitar(1)" wire:model="inss" readonly class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(2)" class="bg-light form-control-file " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(3)" class="bg-light form-control-file" type="number" /></td>
               </tr>
+              <div id="inss" class="bg-secondary d-none">
+                INSS (%) – é a contribuição adstrita ao trabalhador em decorrência do artigo n.o 2 do
+                    Decreto n.o 4/90 de 13 de Abril (totalizando 7% sendo que empregador 4% e trabalhador 
+                    3%)
+                    <br>
+                    INSS (%) – é a contribuição do trabalhador por conta própria que é de 7% para 
+trabalhador por conta própria, em decorrência do artigo n.o 1 do Decreto n.o 14/2015 de 
+16 de Julho
+            </div>
               <tr>
-                <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">IRPS</th>
+                <th onmouseover="exibirLegenda(event)" onmouseout="fecharLegenda(event)" data-legenda="irps" class="pb-1 pt-1 mb-1 mt-1"  scope="row">IRPS</th>
                 <td class="p-0" ><input readonly wire:click="habilitar(4)" wire:model="irps" class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(5)" class="bg-light form-control-file" type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(6)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
+              <div id="irps" class="bg-secondary d-none">
+                IRPS (%) – é a contribuição atinente ao Imposto do Rendimento de Pessoa Singular, nos 
+termos do Decreto n.º 8/2008, de 16 de Abril
+                </div>
               <tr>
-                <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Férias anuais </th>
+                <th onmouseover="exibirLegenda(event)" onmouseout="fecharLegenda(event)" data-legenda="fanual" class="pb-1 pt-1 mb-1 mt-1"  scope="row">Férias anuais </th>
                 <td class="p-0" ><input readonly wire:click="habilitar(7)" class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(8)" wire:click="habilitar(8)" wire:model="feriaAnual" class="bg-light form-control-file" type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(9)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
-    
+              <div id="fanual" class="bg-secondary d-none">
+                Férias Anuais (%) - é a razão do entre os dias de férias e o número de dias trabalháveis 
+por ano;
+                </div>
               <tr>
-                <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Repousos semanais remunerado </th>
+                <th  onmouseover="exibirLegenda(event)" onmouseout="fecharLegenda(event)" data-legenda="rpsml" class="pb-1 pt-1 mb-1 mt-1"  scope="row">Repousos semanais remunerado </th>
                 <td class="p-0" ><input readonly wire:click="habilitar(10)" class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(11)"  wire:model="campoRepousoSemanal" class="bg-light form-control-file" type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(12)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
+              <div id="rpsml" class="bg-secondary d-none">
+                Repousos semanais remunerado (%) - é a razão entre os dias semanais (52 dias 
+sábados e 53 dias domingos) de repouso e o número de dias trabalháveis por ano;
+                </div>
               <tr>
-                <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Faltas justificadas  </th>
+                <th onmouseover="exibirLegenda(event)" onmouseout="fecharLegenda(event)" data-legenda="fjusticifacdas" class="pb-1 pt-1 mb-1 mt-1"  scope="row">Faltas justificadas  </th>
                 <td class="p-0" ><input readonly wire:click="habilitar(13)"  class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(14)" wire:model="campoFaltasJustificadas" class="bg-light form-control-file" type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(15)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
+              <div id="fjusticifacdas" class="bg-secondary d-none">
+                Faltas justificadas (%) - é a razão do entre os dias de faltas justificadas e o número de 
+dias trabalháveis por ano;
+                </div>
               <tr>
-                <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Feriados Nacionais </th>
+                <th onmouseover="exibirLegenda(event)" onmouseout="fecharLegenda(event)" data-legenda="feriados" class="pb-1 pt-1 mb-1 mt-1"  scope="row">Feriados Nacionais </th>
                 <td class="p-0" ><input readonly wire:click="habilitar(16)" class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(17)" wire:model="campoFeriados" class="bg-light form-control-file" type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(18)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
+              <div id="feriados" class="bg-secondary d-none">
+                Feriados (%) - é a razão do entre os dias de feriados ( 9 dias anuais) e o número de dias 
+trabalháveis por ano;
+                </div>
               <tr>
-                <th class="pb-1 pt-1 mb-1 mt-1"  scope="row">Feriado Municipais </th>
+                <th onmouseover="exibirLegenda(event)" onmouseout="fecharLegenda(event)" data-legenda="fmunicipal"  class="pb-1 pt-1 mb-1 mt-1"  scope="row">Feriado Municipais </th>
                 <td class="p-0" ><input readonly wire:click="habilitar(19)" class="bg-light form-control-file m-0 " type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(20)" wire:model="campoFeriadosCidade" class="bg-light form-control-file" type="number" /></td>
                 <td class="p-0" ><input readonly wire:click="habilitar(21)" class="bg-light form-control-file" type="number" /></td>
 
               </tr>
+              <div id="fmunicipal" class="bg-secondary d-none">
+                Feriados Municipais (%) - é a razão do entre os dias de feriados municipais ( 1 dia) e o 
+número de dias trabalháveis por ano;
+                </div>
               <tr>
                 <th class="pb-1 pt-1 mb-1 mt-1"  scope="row"> 13º salário</th>
                 <td class="p-0" ><input readonly wire:click="habilitar(22)" class="bg-light form-control-file m-0 " type="number" /></td>

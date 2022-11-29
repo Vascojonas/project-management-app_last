@@ -23,7 +23,6 @@
               placeholder="Digite o numero do projecto" wire:keydown.Enter="projectoInfo()"/>
           </div>
           <button class="text-uppercase btn btn-warning col-4" wire:click="projectoInfo()">Visualizar</button>
-          <a href="{{asset('storage/SUMARIO_DE_PUBLICACOES_E_DOCUMENTACAO_DO_SINAPI.pdf')}}" title="Sumário de código" class="text-uppercase btn btn-warning ml-2">Códigos</a>
 
       </div>
 
