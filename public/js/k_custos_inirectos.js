@@ -196,6 +196,7 @@ function calcularAc(){
 
 }
 
+    document.getElementById("despesas_finaceiras").value =resultado.value;
 
 
 function calcularDf(){
