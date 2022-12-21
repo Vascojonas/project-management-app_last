@@ -101,7 +101,7 @@ class CustosIndirectos extends Component
 
     public function mount(){
         $current_url = \Request::fullUrl();
-        $arry = explode('-',$current_url );
+        $arry = explode('--',$current_url );
         
 
         if(count($arry)==4){
@@ -152,7 +152,7 @@ class CustosIndirectos extends Component
     }
 
     public function voltar(){
-        return redirect('/projectos/actividades/-'.$this->nrProjecto.'-'.$this->projecto_principal);
+        return redirect('/projectos/actividades/--'.$this->nrProjecto.'--'.$this->projecto_principal);
 
     }
     

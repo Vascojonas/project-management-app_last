@@ -42,7 +42,7 @@
                 <td>{{$actividade['preco_unitario']*$actividade['quantidade']}},00 Mts</td>
                 <td width="150">
                   <a href="/projectos/actividade" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                  <a href="/servico/update/-{{$projecto['nrProjecto']}}-{{$capitulo['id']}}-{{$actividade['codigo']}}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                  <a href="/servico/update/--{{$projecto['nrProjecto']}}--{{$capitulo['id']}}--{{$actividade['codigo']}}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
                   <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
                 </td>
               </tr>

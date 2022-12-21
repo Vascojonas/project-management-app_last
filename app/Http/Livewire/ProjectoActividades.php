@@ -30,7 +30,7 @@ class ProjectoActividades extends Component
 
     public function mount(){
         $current_url = \Request::fullUrl();
-        $arry = explode('-',$current_url );
+        $arry = explode('--',$current_url );
         
 
         if(count($arry)==3){
@@ -91,7 +91,7 @@ class ProjectoActividades extends Component
         
         $this->projecto->update($data);
 
-        return redirect('/projectos/capitulos/-'.$this->projecto_principal);
+        return redirect('/projectos/capitulos/--'.$this->projecto_principal);
     }
 
     public function custos($total, $totalReal){
@@ -109,7 +109,7 @@ class ProjectoActividades extends Component
         
         $this->projecto->update($data);
         
-        return redirect('/custos/-'.$this->nrProjecto.'-'.$this->projecto_principal.'-'.$totalReal);
+        return redirect('/custos/--'.$this->nrProjecto.'--'.$this->projecto_principal.'--'.$totalReal);
 
     }
 
@@ -161,7 +161,7 @@ class ProjectoActividades extends Component
         
        $this->projecto->custo()->save($c);
 
-       return redirect('/projectos/capitulos/-'.$this->projecto_principal);
+       return redirect('/projectos/capitulos/--'.$this->projecto_principal);
     }
 
     public function actividadeDelete($id){

@@ -29,7 +29,7 @@ class CadastrarServicos extends Component
 
     public function mount(){
         $current_url = \Request::fullUrl();
-        $arry = explode('-',$current_url );
+        $arry = explode('--',$current_url );
         
 
         if(count($arry)==5){
@@ -100,7 +100,7 @@ class CadastrarServicos extends Component
        // $actividade->update();
         session()->flash('success', 'Actividade actualizada com sucesso');
         $nrProjecto=  $this->nrProjecto;
-        return redirect('/projectos/actividades/-'.$nrProjecto.'-'.$this->projecto_principal);
+        return redirect('/projectos/actividades/--'.$nrProjecto.'--'.$this->projecto_principal);
 
     }
 
@@ -146,7 +146,7 @@ class CadastrarServicos extends Component
 
                  $projecto->actividades()->save($actividade);
                  session()->flash('success', 'Actividade registrada com sucesso');
-                 return redirect('/projectos/actividades/-'.$this->nrProjecto.'-'.$this->projecto_principal);
+                 return redirect('/projectos/actividades/--'.$this->nrProjecto.'--'.$this->projecto_principal);
             }
 
        

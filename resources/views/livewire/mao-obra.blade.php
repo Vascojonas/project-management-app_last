@@ -10,7 +10,7 @@
     <h4>Mão de obra</h4>
  
     <div class="d-flex justify-content-end mb-2 col-6  p-0">
-     <a href="/projectos/actividades/-{{$nrProjecto}}-{{$projecto_principal}}" class="btn btn-secondary col-3">Voltar</a>
+     <a href="/projectos/actividades/--{{$nrProjecto}}-{{$projecto_principal}}" class="btn btn-secondary col-3">Voltar</a>
      <button wire:click="actualizar()" class="btn btn-warning col-3 ml-4">Actualizar</button>
    </div>
 

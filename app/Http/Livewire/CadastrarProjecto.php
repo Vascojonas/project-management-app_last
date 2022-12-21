@@ -23,7 +23,7 @@ class CadastrarProjecto extends Component
 
     public function mount(){
         $current_url = \Request::fullUrl();
-        $arry = explode('-',$current_url );
+        $arry = explode('--',$current_url );
         
 
         if(count($arry)==3){
@@ -58,7 +58,7 @@ class CadastrarProjecto extends Component
         ]);
         $projecto= Projecto::where('nrProjecto',$this->nrProjecto)->first();
         $projecto->update($data);
-        return redirect('/projectos/capitulos/-'.$this->projecto_principal);
+        return redirect('/projectos/capitulos/--'.$this->projecto_principal);
 
     }
 
@@ -80,7 +80,7 @@ class CadastrarProjecto extends Component
             return;
         }else{
             Projecto::create($data);
-            return redirect('/projectos/capitulos/-'.$this->nrProjecto);
+            return redirect('/projectos/capitulos/--'.$this->nrProjecto);
         }
     }
     

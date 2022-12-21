@@ -150,8 +150,8 @@
               <td>{{$projecto['preco_unitario']}},00 MT</td>
               <td>{{$projecto['preco_unitario']*$projecto['quantidade']}},00 MT</td>
               <td width="150">
-                <a href="/projectos/actividades/-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-circle btn-outline-info" title="Sub serviços"><i class="text-uppercase fa fa-eye"></i></a>
-                <a  href="/-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-circle btn-outline-secondary" title="Editar">
+                <a href="/projectos/actividades/--{{$projecto['nrProjecto']}}--{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-circle btn-outline-info" title="Sub serviços"><i class="text-uppercase fa fa-eye"></i></a>
+                <a  href="/--{{$projecto['nrProjecto']}}--{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-circle btn-outline-secondary" title="Editar">
                     <i class="text-uppercase fa fa-edit"></i>
                 </a>
                 <button wire:click="delete({{$projecto['idCapitulo']}})" class="text-uppercase btn btn-sm btn-circle btn-outline-danger" title="Eliminar"><i class="text-uppercase fa fa-times"></i></button>
@@ -193,8 +193,8 @@
     </table> 
 
     </div>
-    <a href="/projectos/relatorio/pdf/-{{$nrProjecto}}" target="_blank" class="text-uppercase btn btn-warning col-2">Imprimir PDF</a>
-    <a href="/projectos/relatorio/excel/-{{$nrProjecto}}" target="_blank" class="text-uppercase btn btn-secondary col-2">Imprimir Excel</a>
+    <a href="/projectos/relatorio/pdf/--{{$nrProjecto}}" target="_blank" class="text-uppercase btn btn-warning col-2">Imprimir PDF</a>
+    <a href="/projectos/relatorio/excel/--{{$nrProjecto}}" target="_blank" class="text-uppercase btn btn-secondary col-2">Imprimir Excel</a>
 
 </div>
 <div>

@@ -18,7 +18,7 @@
 
             <div class="text-uppercase form-group d-flex justify-content-end col-4  p-0  ml-auto">
 
-              <a href="/servicos/cadastrar/-{{$nrProjecto}}-{{$projecto_principal}}" class="text-uppercase btn btn-secondary ">Nova actividade</a>
+              <a href="/servicos/cadastrar/--{{$nrProjecto}}--{{$projecto_principal}}" class="text-uppercase btn btn-secondary ">Nova actividade</a>
               
             </div>
 
@@ -54,13 +54,13 @@
               <td>{{$actividade['preco_final']}},00 MT</td>
               <td>{{$actividade['preco_final']*$actividade['quantidade']}},00 MT</td>
               <td width="150" class="text-uppercase text-right">
-                <a href="/servico/update/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-circle btn-outline-secondary" title="Editar"><i class="text-uppercase fa fa-edit"></i></a>
+                <a href="/servico/update/--{{$actividade['id']}}--{{$actividade['codigo']}}--{{$projecto['nrProjecto']}}--{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-circle btn-outline-secondary" title="Editar"><i class="text-uppercase fa fa-edit"></i></a>
                 @if ($actividade['unidade']=='H'||$actividade['unidade']=='h')
-                  <a href="/processar/pagamentos/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-outline-primary" title="Mão de obra" >MO</a>         
+                  <a href="/processar/pagamentos/--{{$actividade['id']}}--{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}--{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-outline-primary" title="Mão de obra" >MO</a>         
                 @endif
                  
                 @if ($actividade['unidade']=='CHI'||$actividade['unidade']=='CHP')
-                <a href="/actividades/equipamentos/-{{$actividade['id']}}-{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}-{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-outline-primary" title="Mão de obra" >EQ</a>         
+                <a href="/actividades/equipamentos/--{{$actividade['id']}}--{{$actividade['codigo']}}-{{$projecto['nrProjecto']}}--{{$projecto_principal}}" class="text-uppercase btn btn-sm btn-outline-primary" title="Mão de obra" >EQ</a>         
                 @endif
 
 

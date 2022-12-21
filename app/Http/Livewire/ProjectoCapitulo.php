@@ -35,7 +35,7 @@ class ProjectoCapitulo extends Component
 
     public function mount(){
         $current_url = \Request::fullUrl();
-        $arry = explode('-',$current_url );
+        $arry = explode('--',$current_url );
         
 
         if(count($arry)==2){
