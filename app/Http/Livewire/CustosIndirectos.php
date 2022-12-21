@@ -20,7 +20,7 @@ class CustosIndirectos extends Component
     public $nrProjecto;
     public $actividade;
     public $preco_unitario;
-    public $di=0;
+    public $di;
     public $al;
     public $ac;
     public $df ;
@@ -50,14 +50,51 @@ class CustosIndirectos extends Component
     public $d3_value;
 
     protected $listeners = [
-        'getValue1ForInput'
+        'getValue1ForInput',
+        'getValueDi',
+        'getValueRisco',
+        'getValueAc',
+        'getValueAl',
+        'getValueDf'
    ];
 
    public function getValue1ForInput($value)
-{
-    if(!is_null($value))
-        $this->d1_value = $value;
-}
+    {
+        if(!is_null($value))
+            $this->d1_value = $value;
+    }
+
+    public function getValueDi($value)
+    {
+
+        if(!is_null($value))
+            $this->taxa_di = $value;
+    }
+
+    public function getValueDf($value)
+    {
+        if(!is_null($value))
+            $this->taxa_df = $value;
+    }
+    public function getValueAl($value)
+    {
+        if(!is_null($value))
+            $this->taxa_al = $value;
+    }
+    public function getValueAc($value)
+    {
+        if(!is_null($value))
+            $this->taxa_ac = $value;
+    }
+    public function getValueRisco($value)
+    {
+        if(!is_null($value))
+            $this->taxa_riscos = $value;
+    }
+
+
+
+
 
     public $campo, $habilitar=false;
 
@@ -171,8 +208,9 @@ class CustosIndirectos extends Component
 
     public function cadastrarCusto(){
         $this->calcular();
-    
-
+        
+        
+        
         $data= $this->validate([
             'taxa_di' => 'required',
             'taxa_al' => 'required',
